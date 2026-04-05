@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { GuideLines } from "@/components/layout/GuideLines";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -62,8 +64,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
-      <body className="min-h-screen flex flex-col antialiased">
+    <html lang="en" className={`${geist.variable} ${jetbrainsMono.variable}`}>
+      <body className="min-h-screen flex flex-col antialiased font-[var(--font-geist-sans)]">
         <GuideLines />
         <Header />
         <main className="flex-1">{children}</main>

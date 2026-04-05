@@ -3,6 +3,7 @@
 @theme {
   /* Font family */
   --font-family-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  --font-geist: var(--font-geist-sans);
 
   /* Design system colors */
   --color-navy: #1e2d3d;
@@ -16,6 +17,9 @@
   --color-danger: #ff3218;
   --color-surface-light: #ffffff;
   --color-surface-dark: #1e2d3d;
+  --color-bg: #fafafa;
+  --color-border-light: #e2e8f0;
+  --color-surface-frame: #f4f4f4;
 }
 
 /* ── Wave animation (Hero animated cards) ───────────────────── */
@@ -87,15 +91,15 @@
         0deg,
         transparent,
         transparent 1rem,
-        rgba(30, 45, 61, 0.07) 1rem,
-        rgba(30, 45, 61, 0.07) calc(1rem + 1px)
+        rgba(30, 45, 61, 0.04) 1rem,
+        rgba(30, 45, 61, 0.04) calc(1rem + 1px)
       ),
       repeating-linear-gradient(
         90deg,
         transparent,
         transparent 1rem,
-        rgba(30, 45, 61, 0.07) 1rem,
-        rgba(30, 45, 61, 0.07) calc(1rem + 1px)
+        rgba(30, 45, 61, 0.04) 1rem,
+        rgba(30, 45, 61, 0.04) calc(1rem + 1px)
       );
     background-color: #ffffff;
   }
