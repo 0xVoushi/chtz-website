@@ -1,11 +1,67 @@
-import { CAPABILITIES } from "@/lib/content";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { CAPABILITIES } from '@/lib/content'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { BentoGridWithFeatures, BentoFeature } from '@/components/ui/bento-grid'
+
+const monoTag = (tag: string) => (
+  <span
+    className="text-[1.2rem] text-[--color-muted] mt-[1.2rem] block"
+    style={{ fontFamily: 'var(--font-family-mono)' }}
+  >
+    {tag}
+  </span>
+)
+
+const features: BentoFeature[] = [
+  {
+    id: 'backend-systems',
+    title: CAPABILITIES.items[0].title,
+    description: CAPABILITIES.items[0].description,
+    content: monoTag('// backend'),
+    className: 'md:col-span-3 border-r border-b border-[--color-border-light]',
+  },
+  {
+    id: 'ai-agents',
+    title: CAPABILITIES.items[2].title,
+    description: CAPABILITIES.items[2].description,
+    content: monoTag('// ai'),
+    className: 'md:col-span-2 border-r border-b border-[--color-border-light]',
+  },
+  {
+    id: 'product-ui',
+    title: CAPABILITIES.items[1].title,
+    description: CAPABILITIES.items[1].description,
+    content: monoTag('// frontend'),
+    className: 'md:col-span-1 border-b border-[--color-border-light]',
+  },
+  {
+    id: 'sdk-integrations',
+    title: CAPABILITIES.items[3].title,
+    description: CAPABILITIES.items[3].description,
+    content: monoTag('// integrations'),
+    className: 'md:col-span-2 border-r border-[--color-border-light]',
+  },
+  {
+    id: 'blockchain',
+    title: CAPABILITIES.items[4].title,
+    description: CAPABILITIES.items[4].description,
+    content: monoTag('// web3'),
+    className: 'md:col-span-2 border-r border-[--color-border-light]',
+  },
+  {
+    id: 'infra-reliability',
+    title: CAPABILITIES.items[5].title,
+    description: CAPABILITIES.items[5].description,
+    content: monoTag('// devops'),
+    className: 'md:col-span-2',
+  },
+]
 
 export function CapabilitiesSection() {
   return (
     <section
+      id="capabilities"
       aria-label="Capabilities"
-      className="bg-white border-t border-navy py-[9.6rem]"
+      className="bg-[--color-bg] border-t border-b border-[--color-border-light] py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <SectionHeader
@@ -13,43 +69,10 @@ export function CapabilitiesSection() {
           label="Full Engineering Surface"
           description={CAPABILITIES.description}
         />
-
-        {/* Border-grid layout */}
-        <div className="mt-[6.4rem] border border-navy rounded-[1.2rem] overflow-hidden">
-          <div className="grid grid-cols-2 md:grid-cols-3">
-            {CAPABILITIES.items.map((item, index) => {
-              const isLastRow = index >= CAPABILITIES.items.length - 2;
-              const isLastRowMd = index >= CAPABILITIES.items.length - 3;
-              const isRightColSm = (index + 1) % 2 === 0;
-              const isRightColMd = (index + 1) % 3 === 0;
-
-              return (
-                <div
-                  key={item.title}
-                  className={[
-                    "p-[2.8rem] md:p-[3.2rem]",
-                    "border-navy",
-                    !isRightColSm ? "border-r md:border-r-0" : "",
-                    !isRightColMd ? "md:border-r" : "",
-                    !isLastRow ? "border-b md:border-b-0" : "",
-                    !isLastRowMd ? "md:border-b" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  <div className="w-[3.2rem] h-[0.3rem] bg-orange-cta mb-[2rem] rounded-full" />
-                  <h3 className="text-[1.6rem] font-semibold text-near-black tracking-[-0.03rem] mb-[1rem]">
-                    {item.title}
-                  </h3>
-                  <p className="text-[1.4rem] leading-[1.7] text-muted">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-[6.4rem]">
+          <BentoGridWithFeatures features={features} />
         </div>
       </div>
     </section>
-  );
+  )
 }

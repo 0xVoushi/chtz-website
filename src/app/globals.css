@@ -31,6 +31,16 @@
   100% { opacity: 0; transform: translateY(0); }
 }
 
+/* ── Blob animations (Hero gooey background) ─────────────────── */
+@keyframes blob-move-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3rem, -2rem) scale(1.05); }
+}
+@keyframes blob-move-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2rem, 3rem) scale(0.95); }
+}
+
 @layer base {
   html {
     font-size: 62.5%; /* 1rem = 10px */
@@ -151,6 +161,10 @@
       transparent 0.3rem
     );
   }
+
+  /* ── Blob utility classes (Hero gooey background) ───────────── */
+  .blob-1 { animation: blob-move-1 12s ease-in-out infinite; }
+  .blob-2 { animation: blob-move-2 15s ease-in-out infinite; }
 
   /* ── Animated wave cards (Hero) ────────────────────────────── */
   .animate-wave-card {

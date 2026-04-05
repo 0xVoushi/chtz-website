@@ -1,7 +1,4 @@
-'use client'
-
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 
 const GRADIENT_ANGLES = {
   top: 0,
@@ -43,7 +40,7 @@ export function ProgressiveBlur({
         const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(', ')})`
 
         return (
-          <motion.div
+          <div
             key={index}
             className="pointer-events-none absolute inset-0 rounded-[inherit]"
             style={{

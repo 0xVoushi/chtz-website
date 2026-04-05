@@ -1,11 +1,21 @@
 {
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:21st.dev)",
+      "mcp__magic__21st_magic_component_inspiration"
+    ]
+  },
   "mcpServers": {
     "Figma": {
       "url": "http://127.0.0.1:3845/mcp"
     },
     "MCP_DOCKER": {
       "command": "docker",
-      "args": ["mcp", "gateway", "run"]
+      "args": [
+        "mcp",
+        "gateway",
+        "run"
+      ]
     },
     "chrome-devtools": {
       "command": "npx -y chrome-devtools-mcp@latest",

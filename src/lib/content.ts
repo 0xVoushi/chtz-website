@@ -71,50 +71,6 @@ export const FAST_START = {
   cta: { label: "Book a Discovery Call", href: "#contact" },
 } as const;
 
-// ── Benefits (6-card grid + CTA card) ───────────────────────────
-export const BENEFITS = {
-  heading: "What You Get with Every Project",
-  label: "The CHTZ-Tech Standard",
-  items: [
-    {
-      icon: "TS",
-      title: "Type-Safe by Default",
-      description:
-        "TypeScript strict mode across every layer — frontend, backend, and API contracts. Zero runtime type surprises.",
-    },
-    {
-      icon: "95",
-      title: "95+ Lighthouse",
-      description:
-        "Performance is a build requirement, not an afterthought. Every project ships with verified Core Web Vitals.",
-    },
-    {
-      icon: "CI",
-      title: "CI/CD from Day 1",
-      description:
-        "Automated pipelines, test coverage, and zero-manual-deploy from the first commit. No 'we'll add it later'.",
-    },
-    {
-      icon: "⊕",
-      title: "Clear Architecture",
-      description:
-        "System design documented before the first line of code. You know exactly what we're building and why.",
-    },
-    {
-      icon: "▷",
-      title: "Weekly Delivery",
-      description:
-        "Working software in your hands every week. No radio silence, no big-bang releases.",
-    },
-    {
-      icon: "◎",
-      title: "You Own the Code",
-      description:
-        "Clean handoff docs, zero lock-in, full IP transfer. Your codebase, your infrastructure.",
-    },
-  ],
-} as const;
-
 // ── Tech Stack (Products / inverted dot pattern) ─────────────────
 export const TECH_STACK = {
   heading: "Our Stack",
@@ -149,13 +105,6 @@ export const TECH_STACK = {
   ],
 } as const;
 
-// ── Partnership (second dark CTA) ────────────────────────────────
-export const PARTNERSHIP = {
-  heading: "Looking for a long-term engineering\u00a0partner?",
-  body: "We work with teams that value quality and clear communication. Not just a one-time build\u00a0—\u00a0a working relationship.",
-  cta: { label: "Let's Talk", href: "#contact" },
-} as const;
-
 export const SERVICES = {
   heading: "Our Software Development Services",
   items: [
@@ -188,30 +137,6 @@ export const SERVICES = {
       title: "Enterprise Software Solutions",
       description:
         "Custom admin dashboards, internal tools, and enterprise platforms. Built for scale, security, and long-term maintainability.",
-    },
-  ],
-} as const;
-
-export const WHY_US = {
-  heading: "Why Teams Choose Us",
-  items: [
-    {
-      icon: "01",
-      title: "Senior Engineers Only",
-      description:
-        "No juniors learning on your project. Every team member has 8+ years of production experience across multiple domains.",
-    },
-    {
-      icon: "02",
-      title: "Full Lifecycle Ownership",
-      description:
-        "From architecture to deployment to monitoring. We don't hand off half-finished work — we own the outcome end to end.",
-    },
-    {
-      icon: "03",
-      title: "Performance-First Development",
-      description:
-        "Every project ships with 95+ Lighthouse scores, type-safe code, automated testing, and CI/CD from day one.",
     },
   ],
 } as const;
@@ -395,7 +320,7 @@ export const PRICING_TIERS = [
     cta: 'Contact Us',
     ctaHref: 'mailto:hello@chtz-tech.dev',
   },
-]
+] as const
 
 export const PRINCIPLES = [
   {

@@ -2,9 +2,8 @@ import { HOW } from "@/lib/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 // The How section mirrors the original _mad-assembly "How" component:
-// Two side-by-side cards comparing "the old way" vs "our way".
+// Two side-by-side flex cards comparing the old way vs the CHTZ-Tech way.
 // Title highlights use repeating-linear-gradient (title-highlight-orange / green).
-// Cards use CSS Grid named areas: icon + title in row 1, list in row 2.
 
 type CardVariant = "sad" | "happy";
 
@@ -18,19 +17,18 @@ function HowCard({ title, variant, points }: HowCardProps) {
   const isSad = variant === "sad";
   const accentColor = isSad ? "text-orange-cta" : "text-green-success";
   const highlightClass = isSad ? "title-highlight-orange" : "title-highlight-green";
-  const iconColor = isSad ? "text-orange-cta" : "text-green-success";
   const dotColor = isSad ? "bg-orange-cta" : "bg-green-success";
 
   return (
-    <div className="border border-navy p-[2.4rem] md:p-[3.2rem] flex flex-col gap-[2.4rem]">
-      {/* Row 1: icon + title (CSS grid named areas mirrored in flex) */}
+    <div className="border border-[--color-border-light] bg-[--color-surface-frame] p-[2.4rem] md:p-[3.2rem] flex flex-col gap-[2.4rem]">
+      {/* Row 1: icon + title */}
       <div className="flex items-start gap-[1.6rem]">
         <div
           className={`shrink-0 w-[4rem] h-[4rem] flex items-center justify-center border ${
             isSad ? "border-orange-cta" : "border-green-success"
           } rounded-[0.6rem]`}
         >
-          <span className={`text-[2rem] font-bold ${iconColor}`}>
+          <span className={`text-[2rem] font-bold ${accentColor}`}>
             {isSad ? "✗" : "✓"}
           </span>
         </div>
@@ -60,7 +58,7 @@ export function HowSection() {
   return (
     <section
       aria-label="How it works — the CHTZ-Tech way"
-      className="bg-white border-t border-navy py-[9.6rem]"
+      className="bg-[--color-bg] border-t border-b border-[--color-border-light] py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <SectionHeader

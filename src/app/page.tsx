@@ -1,25 +1,13 @@
-// Page section order follows the _mad-assembly breakdown structure,
-// adapted for the CHTZ-Tech studio context:
-//
-// Hero (animated) → How (comparison) → Services →
-// FastStart (dark CTA #1) → Benefits (6-card hatched grid) →
-// Process → TechStack (inverted dots) → WhyUs (dark CTA #2) →
-// Capabilities → FAQ → CTA/Start (dark CTA #3)
-//
-// Three dark CTA sections: FastStart, WhyUs, CTASection
-// Two inverted/textured light sections: TechStack (inverted dots), How
-
 import { HomepageSchema } from "@/components/structured-data/HomepageSchema";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HowSection } from "@/components/sections/HowSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { FastStartSection } from "@/components/sections/FastStartSection";
-import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
-import { WhyUsSection } from "@/components/sections/WhyUsSection";
-import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
-import { PartnershipSection } from "@/components/sections/PartnershipSection";
+import { PrinciplesSection } from "@/components/sections/PrinciplesSection";
+import { PricingSection } from "@/components/sections/PricingSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -29,32 +17,23 @@ export default function HomePage() {
       <HomepageSchema />
 
       {/* ── Light sections ─────────────────────────── */}
-      <HeroSection />        {/* dashed grid, animated floating cards */}
-      <HowSection />         {/* comparison: old way vs CHTZ-Tech */}
-      <ServicesSection />    {/* 5 service cards */}
+      <HeroSection />
+      <HowSection />
+      <ServicesSection />
 
-      {/* ── Dark CTA #1 ────────────────────────────── */}
-      <FastStartSection />   {/* dot pattern, white body block */}
-
-      {/* ── Light sections ─────────────────────────── */}
-      <BenefitsSection />    {/* 6 cards + CTA card, hatched icons */}
-      <ProcessSection />     {/* 4 steps */}
-      <TechStackSection />   {/* inverted dot pattern, tech groups */}
-
-      {/* ── Dark CTA #2 ────────────────────────────── */}
-      <WhyUsSection />       {/* dot pattern, 3 standards cards */}
+      {/* ── Dark section #1 ────────────────────────── */}
+      <FastStartSection />
 
       {/* ── Light sections ─────────────────────────── */}
-      <CapabilitiesSection /> {/* 6-block border grid */}
+      <CapabilitiesSection />
+      <ProcessSection />
+      <TechStackSection />
+      <PrinciplesSection />
+      <PricingSection />
+      <FAQSection />
 
-      {/* ── Dark CTA #2.5 ──────────────────────────── */}
-      <PartnershipSection /> {/* dot pattern, long-term partner */}
-
-      {/* ── Light section ──────────────────────────── */}
-      <FAQSection />         {/* sticky orange sidebar + accordion */}
-
-      {/* ── Dark CTA #3 ────────────────────────────── */}
-      <CTASection />         {/* dot pattern, contact form */}
+      {/* ── Dark section #2 ────────────────────────── */}
+      <CTASection />
     </>
   );
 }

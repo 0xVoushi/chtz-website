@@ -9,15 +9,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
+          'bg-[--color-orange-cta] text-[--color-navy] hover:opacity-90',
         primary:
-          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
+          'bg-[--color-orange-cta] text-[--color-navy] hover:opacity-90',
         outline:
-          'border border-[var(--color-navy)] bg-transparent text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white',
+          'border border-[--color-navy] bg-transparent text-[--color-navy] hover:bg-[--color-navy] hover:text-white',
         secondary:
-          'bg-[var(--color-navy)] text-white hover:opacity-90',
+          'bg-[--color-navy] text-white hover:opacity-90',
         ghost:
-          'bg-transparent text-[var(--color-navy)] hover:bg-[var(--color-surface-frame)]',
+          'bg-transparent text-[--color-navy] hover:bg-[--color-surface-frame]',
       },
       size: {
         sm: 'h-8 px-3 text-xs',
