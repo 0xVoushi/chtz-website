@@ -20,14 +20,14 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[--color-border-light] bg-background pt-20">
+    <footer className="border-t border-border-light bg-background pt-20">
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <div className="grid gap-12 md:grid-cols-5">
           {/* Brand column */}
           <div className="space-y-6 md:col-span-2">
             <Link
               href="/"
-              className="block size-fit text-[1.8rem] font-semibold text-[--color-near-black] tracking-[-0.04rem] hover:text-primary transition-std"
+              className="block size-fit text-[1.8rem] font-semibold text-near-black tracking-[-0.04rem] hover:text-primary transition-std"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               {SITE.name}
@@ -71,7 +71,7 @@ export function Footer() {
           <div className="col-span-3 grid grid-cols-3 gap-6">
             {FOOTER_LINKS.map((group) => (
               <div key={group.title} className="space-y-4">
-                <span className="block text-[1.4rem] font-medium text-[--color-near-black]">
+                <span className="block text-[1.4rem] font-medium text-near-black">
                   {group.title}
                 </span>
                 {group.links.map((link) => (
@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-[--color-border-light] py-6">
+        <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-border-light py-6">
           <span className="order-last block text-center text-[1.3rem] text-muted-foreground md:order-first">
             {FOOTER.copyright}
           </span>

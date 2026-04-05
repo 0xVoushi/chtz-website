@@ -7,7 +7,7 @@ export function FAQSection() {
     <section
       id="faq"
       aria-label="Frequently asked questions"
-      className="bg-[--color-bg] border-t border-b border-[--color-border-light] py-[9.6rem]"
+      className="bg-bg border-t border-b border-border-light py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <SectionHeader heading={FAQ.heading} label="Questions" />

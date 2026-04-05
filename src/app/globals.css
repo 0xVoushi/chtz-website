@@ -18,7 +18,7 @@
   --color-surface-light: #ffffff;
   --color-surface-dark: #1e2d3d;
   --color-bg: #fafafa;
-  --color-border-light: #e2e8f0;
+  --color-border-light: rgba(30, 45, 61, 0.15);
   --color-surface-frame: #f4f4f4;
 
   /* shadcn-compatible aliases — required by adapted 21st.dev components */

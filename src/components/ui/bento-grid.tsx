@@ -43,7 +43,7 @@ export function BentoGrid({ children, className }: BentoGridProps) {
   return (
     <div
       className={cn(
-        'grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-0 rounded-xl border border-[--color-border-light]',
+        'grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-0 rounded-xl border border-border-light',
         className
       )}
     >
@@ -57,7 +57,7 @@ export function BentoCard({ id, children, className }: BentoCardProps) {
     <div
       id={id}
       className={cn(
-        'relative overflow-hidden p-6 sm:p-8 border-[--color-border-light]',
+        'relative overflow-hidden p-6 sm:p-8 border-border-light',
         className
       )}
     >
@@ -71,7 +71,7 @@ export function BentoTitle({ children, className }: BentoTitleProps) {
   return (
     <h3
       className={cn(
-        'text-left text-lg font-semibold tracking-tight text-[--color-near-black]',
+        'text-left text-lg font-semibold tracking-tight text-near-black',
         className
       )}
     >
@@ -85,7 +85,7 @@ export function BentoDescription({ children, className }: BentoDescriptionProps)
   return (
     <p
       className={cn(
-        'text-left text-sm font-normal text-[--color-muted] mx-0 my-2',
+        'text-left text-sm font-normal text-muted mx-0 my-2',
         className
       )}
     >

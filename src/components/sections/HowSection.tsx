@@ -20,7 +20,7 @@ function HowCard({ title, variant, points }: HowCardProps) {
   const dotColor = isSad ? "bg-orange-cta" : "bg-green-success";
 
   return (
-    <div className="border border-[--color-border-light] bg-[--color-surface-frame] p-[2.4rem] md:p-[3.2rem] flex flex-col gap-[2.4rem]">
+    <div className="border border-border-light bg-surface-frame p-[2.4rem] md:p-[3.2rem] flex flex-col gap-[2.4rem]">
       {/* Row 1: icon + title */}
       <div className="flex items-start gap-[1.6rem]">
         <div
@@ -58,7 +58,7 @@ export function HowSection() {
   return (
     <section
       aria-label="How it works — the CHTZ-Tech way"
-      className="bg-[--color-bg] border-t border-b border-[--color-border-light] py-[9.6rem]"
+      className="bg-bg border-t border-b border-border-light py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <SectionHeader

@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       aria-label="Hero"
-      className="bg-[--color-bg] relative pt-[9.6rem] pb-[12.8rem] overflow-hidden"
+      className="bg-bg relative pt-[9.6rem] pb-[12.8rem] overflow-hidden"
     >
       {/* GooeyFilter SVG definition */}
       <GooeyFilter id="goo-filter" strength={10} />
@@ -18,8 +18,8 @@ export function HeroSection() {
         className="absolute inset-0 pointer-events-none overflow-hidden"
         style={{ filter: "url(#goo-filter)" }}
       >
-        <div className="blob-1 absolute -top-[10rem] -left-[8rem] w-[50rem] h-[50rem] rounded-full bg-[--color-purple-brand] opacity-[0.12]" />
-        <div className="blob-2 absolute top-[15rem] left-[30rem] w-[40rem] h-[40rem] rounded-full bg-[--color-orange-cta] opacity-[0.10]" />
+        <div className="blob-1 absolute -top-[10rem] -left-[8rem] w-[50rem] h-[50rem] rounded-full bg-purple-brand opacity-[0.12]" />
+        <div className="blob-2 absolute top-[15rem] left-[30rem] w-[40rem] h-[40rem] rounded-full bg-orange-cta opacity-[0.10]" />
       </div>
 
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem] relative z-10">
@@ -67,7 +67,7 @@ export function HeroSection() {
 
         {/* Trust bar */}
         <div
-          className="mt-[4rem] pt-[3.2rem] border-t border-[--color-border-light] flex flex-wrap items-center gap-x-[3.2rem] gap-y-[1.2rem]"
+          className="mt-[4rem] pt-[3.2rem] border-t border-border-light flex flex-wrap items-center gap-x-[3.2rem] gap-y-[1.2rem]"
         >
           {HERO.trustSignals.map((signal) => (
             <span

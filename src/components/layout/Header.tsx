@@ -5,12 +5,12 @@ import { MobileMenu } from "@/components/layout/MobileMenu";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-[--color-border-light]">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border-light">
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem] flex items-center justify-between h-[6.4rem]">
         {/* Logo */}
         <Link
           href="/"
-          className="text-[1.8rem] font-semibold text-[--color-near-black] tracking-[-0.04rem] hover:text-[--color-orange-cta] transition-std"
+          className="text-[1.8rem] font-semibold text-near-black tracking-[-0.04rem] hover:text-orange-cta transition-std"
           style={{ fontFamily: 'var(--font-family-mono)' }}
         >
           {SITE.name}
@@ -22,7 +22,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[1.4rem] text-muted-foreground hover:text-[--color-near-black] transition-std relative after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[0.2rem] after:bg-transparent hover:after:bg-[--color-orange-cta] after:transition-std"
+              className="text-[1.4rem] text-muted-foreground hover:text-near-black transition-std relative after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[0.2rem] after:bg-transparent hover:after:bg-orange-cta after:transition-std"
             >
               {link.label}
             </a>

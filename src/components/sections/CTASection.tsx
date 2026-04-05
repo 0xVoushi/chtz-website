@@ -6,7 +6,7 @@ export function CTASection() {
     <section
       id="contact"
       aria-label="Start your software project"
-      className="bg-[--color-navy] py-[12.8rem]"
+      className="bg-navy py-[12.8rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[6.4rem] items-start">

@@ -8,7 +8,7 @@ export function ServicesSection() {
     <section
       id="services"
       aria-label="Our software development services"
-      className="py-12 md:py-20 border-t border-[--color-border-light]"
+      className="py-12 md:py-20 border-t border-border-light"
     >
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
         {/* Section heading */}
@@ -22,14 +22,14 @@ export function ServicesSection() {
         </div>
 
         {/* Features 4 grid — divide-x divide-y with shared cell borders */}
-        <div className="relative mx-auto grid max-w-2xl divide-x divide-y border border-[--color-border-light] lg:max-w-4xl sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mx-auto grid max-w-2xl divide-x divide-y border border-border-light lg:max-w-4xl sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.items.map((service, index) => {
             const Icon = LUCIDE_ICONS[index] ?? Globe;
             return (
               <div key={service.title} className="space-y-3 p-12">
                 <div className="flex items-center gap-2">
-                  <Icon className="size-[1.6rem] text-[--color-muted]" strokeWidth={1.5} />
-                  <h3 className="text-[1.4rem] font-medium text-[--color-near-black]">
+                  <Icon className="size-[1.6rem] text-muted" strokeWidth={1.5} />
+                  <h3 className="text-[1.4rem] font-medium text-near-black">
                     {service.title}
                   </h3>
                 </div>

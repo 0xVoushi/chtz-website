@@ -17,11 +17,11 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="divide-y divide-[--color-border-light]">
+    <div className="divide-y divide-border-light">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.question} className={isOpen ? "bg-[--color-surface-frame] rounded-lg px-[1.6rem]" : ""}>
+          <div key={item.question} className={isOpen ? "bg-surface-frame rounded-lg px-[1.6rem]" : ""}>
             <button
               id={`faq-btn-${index}`}
               onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -36,7 +36,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
                 size={20}
                 className={cn(
                   "shrink-0 transition-std",
-                  isOpen ? "rotate-180 text-[--color-orange-cta]" : "rotate-0 text-muted-foreground"
+                  isOpen ? "rotate-180 text-orange-cta" : "rotate-0 text-muted-foreground"
                 )}
                 aria-hidden="true"
               />

@@ -4,7 +4,7 @@ function Card({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       className={cn(
-        'bg-white relative w-full rounded-[1.2rem] p-[0.8rem] shadow-sm border border-[--color-border-light]',
+        'bg-white relative w-full rounded-[1.2rem] p-[0.8rem] shadow-sm border border-border-light',
         className
       )}
       {...props}
@@ -21,7 +21,7 @@ function Header({
   return (
     <div
       className={cn(
-        'bg-[--color-surface-frame] relative mb-[1.6rem] rounded-[1.2rem] border border-[--color-border-light] p-[2.4rem]',
+        'bg-surface-frame relative mb-[1.6rem] rounded-[1.2rem] border border-border-light p-[2.4rem]',
         className
       )}
       {...props}
@@ -51,7 +51,7 @@ function PlanName({ className, ...props }: React.ComponentProps<'h3'>) {
   return (
     <h3
       className={cn(
-        'text-[--color-muted] flex items-center gap-[0.8rem] text-[1.4rem] font-medium',
+        'text-muted flex items-center gap-[0.8rem] text-[1.4rem] font-medium',
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ function Badge({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       className={cn(
-        'border border-[--color-navy]/20 text-[--color-navy]/70 rounded-full px-[0.8rem] py-[0.2rem] text-[1.2rem]',
+        'border border-navy/20 text-navy/70 rounded-full px-[0.8rem] py-[0.2rem] text-[1.2rem]',
         className
       )}
       {...props}
@@ -78,7 +78,7 @@ function Price({ className, ...props }: React.ComponentProps<'div'>) {
 function MainPrice({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
-      className={cn('text-[2.8rem] font-extrabold tracking-tight text-[--color-near-black]', className)}
+      className={cn('text-[2.8rem] font-extrabold tracking-tight text-near-black', className)}
       {...props}
     />
   )
@@ -86,13 +86,13 @@ function MainPrice({ className, ...props }: React.ComponentProps<'span'>) {
 
 function Period({ className, ...props }: React.ComponentProps<'span'>) {
   return (
-    <span className={cn('text-[--color-muted] pb-[0.4rem] text-[1.4rem]', className)} {...props} />
+    <span className={cn('text-muted pb-[0.4rem] text-[1.4rem]', className)} {...props} />
   )
 }
 
 function Description({ className, ...props }: React.ComponentProps<'p'>) {
   return (
-    <p className={cn('text-[--color-muted] text-[1.2rem] mb-[1.2rem]', className)} {...props} />
+    <p className={cn('text-muted text-[1.2rem] mb-[1.2rem]', className)} {...props} />
   )
 }
 
@@ -107,7 +107,7 @@ function List({ className, ...props }: React.ComponentProps<'ul'>) {
 function ListItem({ className, ...props }: React.ComponentProps<'li'>) {
   return (
     <li
-      className={cn('text-[--color-muted] flex items-start gap-[1rem] text-[1.4rem]', className)}
+      className={cn('text-muted flex items-start gap-[1rem] text-[1.4rem]', className)}
       {...props}
     />
   )

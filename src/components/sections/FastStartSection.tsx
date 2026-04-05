@@ -9,7 +9,7 @@ export function FastStartSection() {
   return (
     <section
       aria-label="Ship your first feature fast"
-      className="bg-[--color-navy] py-[9.6rem]"
+      className="bg-navy py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <div className="md:flex md:items-center md:justify-between md:gap-[4.8rem]">

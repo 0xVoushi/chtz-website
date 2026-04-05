@@ -13,7 +13,7 @@ export function PrinciplesSection() {
     <section
       id="principles"
       aria-label="Our engineering principles"
-      className="py-12 md:py-20 border-t border-[--color-border-light]"
+      className="py-12 md:py-20 border-t border-border-light"
     >
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
         {/* Section heading */}
@@ -29,9 +29,9 @@ export function PrinciplesSection() {
         {/* Testimonial grid layout — 2 cols mobile, 4 cols desktop, 2 rows desktop */}
         <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
           {/* Large featured card — spans 2 cols and 2 rows (navy) */}
-          <div className="col-span-2 row-span-2 flex flex-col justify-between rounded-xl bg-[--color-navy] p-[3.2rem] min-h-[24rem]">
+          <div className="col-span-2 row-span-2 flex flex-col justify-between rounded-xl bg-navy p-[3.2rem] min-h-[24rem]">
             <span
-              className="text-[1.2rem] uppercase tracking-[0.1rem] text-[--color-orange-cta]"
+              className="text-[1.2rem] uppercase tracking-[0.1rem] text-orange-cta"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               {outcomesCard.label}
@@ -53,10 +53,10 @@ export function PrinciplesSection() {
           {metricCards.map((principle) => (
             <div
               key={principle.id}
-              className="col-span-1 flex flex-col justify-between rounded-xl border border-[--color-border-light] bg-[--color-surface-frame] p-[2.4rem]"
+              className="col-span-1 flex flex-col justify-between rounded-xl border border-border-light bg-surface-frame p-[2.4rem]"
             >
               <div>
-                <h3 className="text-[1.6rem] font-semibold text-[--color-near-black] mb-[0.8rem]">
+                <h3 className="text-[1.6rem] font-semibold text-near-black mb-[0.8rem]">
                   {principle.title}
                 </h3>
                 <p className="text-[1.4rem] leading-[1.7] text-muted-foreground">
@@ -64,7 +64,7 @@ export function PrinciplesSection() {
                 </p>
               </div>
               <span
-                className="text-[1.2rem] text-[--color-muted] mt-[1.6rem]"
+                className="text-[1.2rem] text-muted mt-[1.6rem]"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
               >
                 {principle.tag}
@@ -73,14 +73,14 @@ export function PrinciplesSection() {
           ))}
 
           {/* Wide ownership card — spans 2 cols on the left */}
-          <div className="col-span-2 flex flex-col justify-between rounded-xl border border-[--color-border-light] bg-[--color-surface-light] p-[3.2rem]">
+          <div className="col-span-2 flex flex-col justify-between rounded-xl border border-border-light bg-surface-light p-[3.2rem]">
             <span
-              className="text-[1.2rem] uppercase tracking-[0.1rem] text-[--color-orange-cta] mb-[1.6rem] block"
+              className="text-[1.2rem] uppercase tracking-[0.1rem] text-orange-cta mb-[1.6rem] block"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               {ownershipCard.label}
             </span>
-            <h3 className="text-[1.8rem] md:text-[2rem] font-medium leading-[1.4] text-[--color-near-black]">
+            <h3 className="text-[1.8rem] md:text-[2rem] font-medium leading-[1.4] text-near-black">
               {ownershipCard.content}
             </h3>
           </div>

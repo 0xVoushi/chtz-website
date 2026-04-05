@@ -19,17 +19,17 @@ export function LogoCloud({ logos, className }: LogoCloudProps) {
     <div className={cn('relative overflow-hidden', className)}>
       {/* Full-width top border line */}
       <div
-        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-screen border-t border-[--color-border-light]"
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-screen border-t border-border-light"
         aria-hidden="true"
       />
       {/* Full-width bottom border line */}
       <div
-        className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 w-screen border-b border-[--color-border-light]"
+        className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 w-screen border-b border-border-light"
         aria-hidden="true"
       />
 
       {/* Slider container with gradient fade edges — efferd/logo-cloud-4 style */}
-      <div className="relative mx-auto max-w-3xl bg-gradient-to-r from-[--color-bg] via-transparent to-[--color-bg] py-6 md:border-x md:border-[--color-border-light]">
+      <div className="relative mx-auto max-w-3xl bg-gradient-to-r from-bg via-transparent to-bg py-6 md:border-x md:border-border-light">
         <InfiniteSlider gap={48} duration={60} durationOnHover={20}>
           {logos.map((logo) => (
             <div key={logo.alt} className="flex items-center">
