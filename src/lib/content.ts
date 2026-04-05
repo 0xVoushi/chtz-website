@@ -340,3 +340,147 @@ export const FOOTER = {
   ],
   copyright: `© ${new Date().getFullYear()} CHTZ-Tech`,
 } as const;
+
+// ── V2 Content ───────────────────────────────────────────────────
+
+export const PRICING_TIERS = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    price: '$20K – $40K',
+    description: 'For focused MVPs and early-stage products',
+    badge: null,
+    features: [
+      '4–6 week delivery',
+      'MVP scope + architecture plan',
+      'TypeScript strict mode + 95+ Lighthouse',
+      'CI/CD pipeline from day one',
+      'Full code handoff + documentation',
+      '1 month post-launch support',
+    ],
+    cta: 'Book a Discovery Call',
+    ctaHref: 'mailto:hello@chtz-tech.dev',
+  },
+  {
+    id: 'growth',
+    name: 'Growth',
+    price: '$40K – $100K',
+    description: 'For products that need AI or Web3 integration',
+    badge: 'Most Popular',
+    features: [
+      '6–10 week delivery',
+      'All Starter features',
+      'AI integration or Web3 layer',
+      'Multi-service architecture',
+      'Monitoring + alerting setup',
+      '3 months post-launch support',
+    ],
+    cta: 'Book a Discovery Call',
+    ctaHref: 'mailto:hello@chtz-tech.dev',
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    price: 'Custom',
+    description: 'For teams that need a long-term engineering partner',
+    badge: null,
+    features: [
+      'Full scope discovery call',
+      'All Growth features',
+      'Dedicated senior engineer',
+      'Long-term partnership model',
+      'Architecture review + audit',
+      'On-call + SLA options',
+    ],
+    cta: 'Contact Us',
+    ctaHref: 'mailto:hello@chtz-tech.dev',
+  },
+]
+
+export const PRINCIPLES = [
+  {
+    id: 'outcomes',
+    type: 'statement' as const,
+    content: "We don't ship code. We ship outcomes. Every architectural decision is documented and justified.",
+    label: 'Engineering First',
+    large: true,
+  },
+  {
+    id: 'typesafe',
+    type: 'metric' as const,
+    title: 'Type-Safe by Default',
+    body: 'TypeScript strict mode on every project. No exceptions.',
+    tag: '// strict: true',
+  },
+  {
+    id: 'weekly',
+    type: 'metric' as const,
+    title: 'Weekly Delivery',
+    body: 'Working software shipped every sprint — not just updates.',
+    tag: '// ship weekly',
+  },
+  {
+    id: 'lighthouse',
+    type: 'metric' as const,
+    title: '95+ Lighthouse',
+    body: 'Performance is not an afterthought. It is a requirement.',
+    tag: '// perf budget',
+  },
+  {
+    id: 'cicd',
+    type: 'metric' as const,
+    title: 'CI/CD from Day 1',
+    body: 'Automated pipelines, testing, and deployment configured before the first feature.',
+    tag: '// automate all',
+  },
+  {
+    id: 'ownership',
+    type: 'statement' as const,
+    content: 'You own everything. Clean handoff, full documentation, zero lock-in.',
+    label: 'Your Code',
+    large: true,
+  },
+]
+
+export const TECH_LOGOS = [
+  { src: 'https://svgl.app/library/nextjs_icon_dark.svg', alt: 'Next.js' },
+  { src: 'https://svgl.app/library/typescript.svg', alt: 'TypeScript' },
+  { src: 'https://svgl.app/library/react.svg', alt: 'React' },
+  { src: 'https://svgl.app/library/nodejs.svg', alt: 'Node.js' },
+  { src: 'https://svgl.app/library/postgresql.svg', alt: 'PostgreSQL' },
+  { src: 'https://svgl.app/library/prisma.svg', alt: 'Prisma' },
+  { src: 'https://svgl.app/library/python.svg', alt: 'Python' },
+  { src: 'https://svgl.app/library/openai.svg', alt: 'OpenAI' },
+  { src: 'https://svgl.app/library/solidity.svg', alt: 'Solidity' },
+  { src: 'https://svgl.app/library/tailwindcss.svg', alt: 'Tailwind CSS' },
+  { src: 'https://svgl.app/library/vercel.svg', alt: 'Vercel' },
+  { src: 'https://svgl.app/library/github.svg', alt: 'GitHub' },
+]
+
+export const FOOTER_LINKS = [
+  {
+    title: 'Services',
+    links: [
+      { label: 'Web Development', href: '#services' },
+      { label: 'AI Development', href: '#services' },
+      { label: 'Web3 & Blockchain', href: '#services' },
+      { label: 'Enterprise Software', href: '#services' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'How We Work', href: '#process' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'FAQ', href: '#faq' },
+      { label: 'Contact', href: '#contact' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+    ],
+  },
+]
