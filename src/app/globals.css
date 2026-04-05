@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font family */
+  --font-family-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
+
+  /* Design system colors */
+  --color-navy: #1e2d3d;
+  --color-purple-brand: #5565e8;
+  --color-orange-cta: #fea55f;
+  --color-green-success: #43d9ad;
+  --color-violet: #c98bdf;
+  --color-near-black: #141414;
+  --color-muted: #4c6176;
+  --color-grey-light: #607b96;
+  --color-danger: #ff3218;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1e2d3d;
+}
+
+/* ── Wave animation (Hero animated cards) ───────────────────── */
+@keyframes animate-wave {
+  0%   { opacity: 0; transform: translateY(3rem); }
+  16%  { opacity: 1; transform: translateY(0); }
+  46%  { opacity: 1; transform: translateY(0); }
+  60%  { opacity: 0; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+@layer base {
+  html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-mono);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #141414;
+    background-color: #ffffff;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  small {
+    font-size: 1.2rem;
+  }
+}
+
+@layer utilities {
+  /* ── Dashed grid texture — light sections ───────────────────── */
+  .bg-dashed-grid {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1rem,
+        rgba(30, 45, 61, 0.07) 1rem,
+        rgba(30, 45, 61, 0.07) calc(1rem + 1px)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1rem,
+        rgba(30, 45, 61, 0.07) 1rem,
+        rgba(30, 45, 61, 0.07) calc(1rem + 1px)
+      );
+    background-color: #ffffff;
+  }
+
+  /* ── Radial dot pattern — dark sections ────────────────────── */
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(85, 101, 232, 0.5) 1px, transparent 1px);
+    background-size: 1.8rem 1.8rem;
+    background-color: #1e2d3d;
+  }
+
+  /* ── Inverted dot pattern — light sections with dark dots ───── */
+  /* Used on Products/TechStack sections (dark dots on white bg) */
+  .bg-dot-inverted {
+    background-image: radial-gradient(rgba(30, 45, 61, 0.12) 1px, transparent 1px);
+    background-size: 1.8rem 1.8rem;
+    background-color: #ffffff;
+  }
+
+  /* ── Hatched icon background (Benefits section) ─────────────── */
+  /* Diagonal green stripes — signature pattern for icon containers */
+  .bg-hatch-green {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(67, 217, 173, 0.55) 0,
+      rgba(67, 217, 173, 0.55) 0.1rem,
+      transparent 0.1rem,
+      transparent 0.2rem
+    );
+  }
+
+  /* ── Title dashed highlight (How section) ───────────────────── */
+  /* Vertical stripes as background — marker-highlight effect */
+  .title-highlight-orange {
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(254, 165, 95, 0.35) 0,
+      rgba(254, 165, 95, 0.35) 0.1rem,
+      transparent 0.1rem,
+      transparent 0.3rem
+    );
+  }
+
+  .title-highlight-green {
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(67, 217, 173, 0.4) 0,
+      rgba(67, 217, 173, 0.4) 0.1rem,
+      transparent 0.1rem,
+      transparent 0.3rem
+    );
+  }
+
+  /* ── Animated wave cards (Hero) ────────────────────────────── */
+  .animate-wave-card {
+    animation: animate-wave 8s ease-in-out infinite;
+    will-change: opacity;
+    opacity: 0;
+  }
+
+  .animate-delay-1 { animation-delay: 0.5s; }
+  .animate-delay-2 { animation-delay: 2s; }
+  .animate-delay-3 { animation-delay: 4s; }
+  .animate-delay-4 { animation-delay: 6s; }
+
+  /* ── Button glow states ────────────────────────────────��────── */
+  .glow-orange:hover,
+  .glow-orange:focus-visible {
+    box-shadow: 0 0 0 0.3rem rgba(254, 165, 95, 0.45);
+    outline: none;
+  }
+
+  .glow-navy:hover,
+  .glow-navy:focus-visible {
+    box-shadow: 0 0 0 0.3rem rgba(30, 45, 61, 0.3);
+    outline: none;
+  }
+
+  .glow-purple:hover,
+  .glow-purple:focus-visible {
+    box-shadow: 0 0 0 0.3rem rgba(85, 101, 232, 0.4);
+    outline: none;
+  }
+
+  /* ── Standard transition ────────────────────────────────────── */
+  .transition-std {
+    transition: all 260ms ease;
+  }
+
+  /* ── Negative letter-spacing helpers ───────────────────────── */
+  .tracking-heading {
+    letter-spacing: -0.05rem;
+  }
+
+  .tracking-hero {
+    letter-spacing: -0.25rem;
+  }
+}

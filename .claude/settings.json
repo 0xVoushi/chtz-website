@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "Figma": {
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "MCP_DOCKER": {
+      "command": "docker",
+      "args": ["mcp", "gateway", "run"]
+    },
+    "chrome-devtools": {
+      "command": "npx -y chrome-devtools-mcp@latest",
+      "env": {},
+      "args": []
+    }
+  }
+}
