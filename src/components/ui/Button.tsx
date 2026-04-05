@@ -18,8 +18,6 @@ const buttonVariants = cva(
           'bg-[var(--color-navy)] text-white hover:opacity-90',
         ghost:
           'bg-transparent text-[var(--color-navy)] hover:bg-[var(--color-surface-frame)]',
-        dark:
-          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
       },
       size: {
         sm: 'h-8 px-3 text-xs',
@@ -38,11 +36,10 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  href?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, href, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     if (asChild) {
       return (
         <Slot
@@ -52,21 +49,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         />
       )
     }
-    if (href) {
-      return (
-        <a
-          className={cn(buttonVariants({ variant, size, className }))}
-          href={href}
-          ref={ref as React.Ref<HTMLAnchorElement>}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-        />
-      )
-    }
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        {...props}
       />
     )
   }

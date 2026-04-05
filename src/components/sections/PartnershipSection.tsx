@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PARTNERSHIP } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 
@@ -23,9 +24,11 @@ export function PartnershipSection() {
           </p>
 
           <div className="mt-[3.2rem]">
-            <Button href={PARTNERSHIP.cta.href} variant="primary" size="lg">
-              {PARTNERSHIP.cta.label}
-            </Button>
+            <Link href={PARTNERSHIP.cta.href}>
+              <Button variant="primary" size="lg">
+                {PARTNERSHIP.cta.label}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

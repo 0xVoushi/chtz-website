@@ -24,9 +24,11 @@ export function FAQSection() {
                 Book a free 30-minute discovery call. No sales pitch — just
                 answers.
               </p>
-              <Button href={`mailto:${SITE.email}`} variant="secondary" size="sm">
-                Book a Call
-              </Button>
+              <a href={`mailto:${SITE.email}`}>
+                <Button variant="secondary" size="sm">
+                  Book a Call
+                </Button>
+              </a>
             </div>
           </aside>
 

@@ -30,9 +30,11 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button href={NAV.cta.href} variant="primary" size="sm">
-            {NAV.cta.label}
-          </Button>
+          <Link href={NAV.cta.href}>
+            <Button variant="primary" size="sm">
+              {NAV.cta.label}
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}

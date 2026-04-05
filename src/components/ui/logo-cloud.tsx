@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
 
@@ -15,7 +16,7 @@ type LogoCloudProps = {
 
 export function LogoCloud({ logos, className }: LogoCloudProps) {
   return (
-    <div className={`relative mx-auto max-w-5xl py-6 ${className ?? ''}`}>
+    <div className={cn('relative mx-auto max-w-5xl py-6', className)}>
       <InfiniteSlider gap={48} duration={60} durationOnHover={20}>
         {logos.map((logo) => (
           <div key={logo.alt} className="flex items-center">
@@ -23,8 +24,8 @@ export function LogoCloud({ logos, className }: LogoCloudProps) {
               alt={logo.alt}
               className="pointer-events-none h-6 select-none grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
               src={logo.src}
-              width={logo.width ?? 'auto'}
-              height={logo.height ?? 'auto'}
+              width={logo.width}
+              height={logo.height}
               loading="lazy"
             />
           </div>

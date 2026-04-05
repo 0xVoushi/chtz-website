@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HERO } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 
@@ -60,12 +61,16 @@ export function HeroSection() {
 
           {/* CTAs */}
           <div className="mt-[4rem] flex flex-wrap items-center gap-[1.6rem]">
-            <Button href={HERO.ctaPrimary.href} variant="primary" size="lg">
-              {HERO.ctaPrimary.label}
-            </Button>
-            <Button href={HERO.ctaSecondary.href} variant="outline" size="lg">
-              {HERO.ctaSecondary.label}
-            </Button>
+            <Link href={HERO.ctaPrimary.href}>
+              <Button variant="primary" size="lg">
+                {HERO.ctaPrimary.label}
+              </Button>
+            </Link>
+            <Link href={HERO.ctaSecondary.href}>
+              <Button variant="outline" size="lg">
+                {HERO.ctaSecondary.label}
+              </Button>
+            </Link>
           </div>
 
           {/* Trust signals */}

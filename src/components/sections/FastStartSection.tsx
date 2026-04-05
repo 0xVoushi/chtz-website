@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FAST_START } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 
@@ -23,14 +24,15 @@ export function FastStartSection() {
           </p>
 
           <div className="mt-[3.2rem]">
-            <Button
-              href={FAST_START.cta.href}
-              variant="secondary"
-              size="lg"
-              className="!bg-purple-brand !border-purple-brand !text-white glow-purple"
-            >
-              {FAST_START.cta.label}
-            </Button>
+            <Link href={FAST_START.cta.href}>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="!bg-purple-brand !border-purple-brand !text-white glow-purple"
+              >
+                {FAST_START.cta.label}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
