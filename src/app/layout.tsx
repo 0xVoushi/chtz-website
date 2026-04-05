@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { GuideLines } from "@/components/layout/GuideLines";
+import { SitePixelTrail } from "@/components/layout/SitePixelTrail";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen flex flex-col antialiased font-[var(--font-geist-sans)]">
         <GuideLines />
+        <SitePixelTrail />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
