@@ -1,69 +1,76 @@
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from "react";
+import * as React from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
 
-type ButtonVariant = "primary" | "secondary" | "outline";
-type ButtonSize = "sm" | "default" | "lg";
-
-type ButtonBaseProps = {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  className?: string;
-  children: React.ReactNode;
-};
-
-type ButtonAsButton = ButtonBaseProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
-
-type ButtonAsAnchor = ButtonBaseProps &
-  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
-
-type ButtonProps = ButtonAsButton | ButtonAsAnchor;
-
-const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-orange-cta text-near-black border-orange-cta glow-orange hover:bg-[#f09348] hover:border-[#f09348]",
-  secondary:
-    "bg-navy text-white border-navy glow-navy hover:bg-[#253749] hover:border-[#253749]",
-  outline:
-    "bg-transparent text-navy border-navy glow-navy hover:bg-navy hover:text-white",
-};
-
-const sizeClasses: Record<ButtonSize, string> = {
-  sm: "py-[0.6rem] px-[1.6rem] text-[1.2rem]",
-  default: "py-[1rem] px-[2rem] text-[1.4rem]",
-  lg: "py-[1.2rem] px-[2.8rem] text-[1.6rem]",
-};
-
-const baseClasses =
-  "inline-flex items-center justify-center font-semibold rounded-[0.8rem] border transition-std cursor-pointer select-none";
-
-export function Button({
-  variant = "primary",
-  size = "default",
-  className = "",
-  children,
-  href,
-  ...rest
-}: ButtonProps) {
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-
-  if (href !== undefined) {
-    return (
-      <a
-        href={href}
-        className={classes}
-        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
-      >
-        {children}
-      </a>
-    );
+const buttonVariants = cva(
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        default:
+          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
+        primary:
+          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
+        outline:
+          'border border-[var(--color-navy)] bg-transparent text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white',
+        secondary:
+          'bg-[var(--color-navy)] text-white hover:opacity-90',
+        ghost:
+          'bg-transparent text-[var(--color-navy)] hover:bg-[var(--color-surface-frame)]',
+        dark:
+          'bg-[var(--color-orange-cta)] text-[var(--color-navy)] hover:opacity-90',
+      },
+      size: {
+        sm: 'h-8 px-3 text-xs',
+        default: 'h-10 px-5 py-2',
+        lg: 'h-12 px-8 text-base',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
   }
+)
 
-  return (
-    <button
-      className={classes}
-      {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
-    >
-      {children}
-    </button>
-  );
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+  href?: string
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, href, ...props }, ref) => {
+    if (asChild) {
+      return (
+        <Slot
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        />
+      )
+    }
+    if (href) {
+      return (
+        <a
+          className={cn(buttonVariants({ variant, size, className }))}
+          href={href}
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        />
+      )
+    }
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      />
+    )
+  }
+)
+Button.displayName = 'Button'
+
+export { Button, buttonVariants }
