@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { HowSection } from "@/components/sections/HowSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { FastStartSection } from "@/components/sections/FastStartSection";
-import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
 import { PrinciplesSection } from "@/components/sections/PrinciplesSection";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <FastStartSection />
 
       {/* ── Light sections ─────────────────────────── */}
-      <CapabilitiesSection />
       <ProcessSection />
       <TechStackSection />
       <PrinciplesSection />

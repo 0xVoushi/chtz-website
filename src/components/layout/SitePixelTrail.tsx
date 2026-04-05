@@ -10,6 +10,7 @@ export function SitePixelTrail() {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
+      if ((e.target as Element)?.closest('[data-no-trail]')) return
       trailRef.current?.handleMove(e.clientX, e.clientY)
     }
     window.addEventListener("mousemove", handler)
