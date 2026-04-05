@@ -7,7 +7,7 @@ export function TechStackSection() {
     <section
       id="tech-stack"
       aria-label="Our technology stack"
-      className="bg-[--color-bg] border-t border-b border-[--color-border-light] py-[9.6rem]"
+      className="relative overflow-hidden bg-[--color-bg] py-[9.6rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <SectionHeader

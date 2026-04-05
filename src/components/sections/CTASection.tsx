@@ -6,7 +6,7 @@ export function CTASection() {
     <section
       id="contact"
       aria-label="Start your software project"
-      className="bg-dot-pattern py-[12.8rem]"
+      className="bg-[--color-navy] py-[12.8rem]"
     >
       <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[6.4rem] items-start">
@@ -18,7 +18,7 @@ export function CTASection() {
             <h2 className="text-[2.8rem] md:text-[3.6rem] font-semibold tracking-[-0.08rem] leading-[1.1] text-white">
               {CTA_SECTION.heading}
             </h2>
-            <p className="mt-[2rem] text-[1.6rem] leading-[1.7] text-[#a0b4c8] max-w-[48rem]">
+            <p className="mt-[2rem] text-[1.6rem] leading-[1.7] text-white/70 max-w-[48rem]">
               {CTA_SECTION.body}
             </p>
 
@@ -31,7 +31,7 @@ export function CTASection() {
               ].map((fact) => (
                 <div key={fact} className="flex items-center gap-[1.2rem]">
                   <span className="w-[0.6rem] h-[0.6rem] rounded-full bg-green-success shrink-0" />
-                  <span className="text-[1.5rem] text-[#a0b4c8]">{fact}</span>
+                  <span className="text-[1.5rem] text-white/70">{fact}</span>
                 </div>
               ))}
             </div>

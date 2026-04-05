@@ -1,0 +1,85 @@
+<h2>Page Architecture — Which approach?</h2>
+<p class="subtitle">The current site has 11 sections. The 21st.dev references cover 7 key zones. How should we handle the gap?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="keep-all" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #f8f9fa; display: flex; gap: 0.5rem;">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.65rem; padding: 0.3rem 0.5rem; border-radius: 3px; text-align: center;">Hero</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">How It Works</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Services</div>
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Fast Start CTA</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Capabilities</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Process</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Tech Stack</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Principles</div>
+        <div style="background: #fea55f; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #141414;">Pricing</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">FAQ</div>
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Contact CTA</div>
+        <div style="background: #141414; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Footer</div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; width: 80px;">
+        <div style="font-size: 0.55rem; color: #4c6176; background: #f0f0f0; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">✓ All 11 sections kept</div>
+        <div style="font-size: 0.55rem; color: #4c6176; background: #f0f0f0; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">↕ Restyled to 21st.dev</div>
+        <div style="font-size: 0.55rem; color: #e74c3c; background: #fef0f0; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">No Testimonials</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Restyle in place</h3>
+      <p>Keep all 11 current sections. Apply the 21st.dev visual system uniformly. Skip the testimonials section since no real ones exist. Maximum content coverage, lower disruption to existing copy.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="streamline" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #f8f9fa; display: flex; gap: 0.5rem;">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.65rem; padding: 0.3rem 0.5rem; border-radius: 3px; text-align: center;">Hero</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Services (Features 11 style)</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Process + Capabilities</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Tech Logos (efferd style)</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Principles as Trust Section</div>
+        <div style="background: #fea55f; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #141414;">Pricing</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">FAQ</div>
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Contact CTA</div>
+        <div style="background: #141414; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Footer (efferd style)</div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; width: 80px;">
+        <div style="font-size: 0.55rem; color: #27ae60; background: #f0faf4; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">✓ Cleaner flow</div>
+        <div style="font-size: 0.55rem; color: #27ae60; background: #f0faf4; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">↕ Fewer sections</div>
+        <div style="font-size: 0.55rem; color: #27ae60; background: #f0faf4; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">Principles = Trust</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Streamline &amp; consolidate</h3>
+      <p>Merge similar sections (e.g., Capabilities + Process combined, "How" folded into Hero or removed). Repurpose Principles as a social-proof / trust section. Tighter page, stronger visual rhythm.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #f8f9fa; display: flex; gap: 0.5rem;">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.65rem; padding: 0.3rem 0.5rem; border-radius: 3px; text-align: center;">Hero</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">How It Works</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Services (Features 11 style)</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Tech Logos + Capabilities</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">Process</div>
+        <div style="background: #5565e8; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Principles (Testimonial style)</div>
+        <div style="background: #fea55f; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #141414;">Pricing</div>
+        <div style="background: #e2e8f0; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center; color: #4c6176;">FAQ</div>
+        <div style="background: #1e2d3d; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Contact CTA</div>
+        <div style="background: #141414; color: #fff; font-size: 0.6rem; padding: 0.25rem 0.5rem; border-radius: 3px; text-align: center;">Footer (efferd style)</div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; width: 80px;">
+        <div style="font-size: 0.55rem; color: #5565e8; background: #f0f1ff; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">✓ All content kept</div>
+        <div style="font-size: 0.55rem; color: #5565e8; background: #f0f1ff; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">↕ Light merge</div>
+        <div style="font-size: 0.55rem; color: #5565e8; background: #f0f1ff; border-radius: 3px; padding: 0.2rem 0.4rem; text-align: center;">Principles styled as testimonials</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Hybrid (Recommended)</h3>
+      <p>Keep most sections but repurpose Principles as a testimonial-style trust section (using the ui-layouts/testimonial component layout with real principles data). Light merging only — no info lost. Closest to the 21st.dev reference set.</p>
+    </div>
+  </div>
+
+</div>

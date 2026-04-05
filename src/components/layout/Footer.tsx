@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { X } from 'lucide-react'
 import { SITE, FOOTER, FOOTER_LINKS } from '@/lib/content'
 
-// Inline SVGs for GitHub and LinkedIn (not in lucide-react v1.x)
 function GithubIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -21,30 +20,29 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-[--color-bg] border-t border-[--color-border-light]">
-      {/* Main grid */}
-      <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem] py-[6.4rem]">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-[4.8rem]">
-
-          {/* Brand column — spans 2 cols on md */}
-          <div className="md:col-span-2">
-            <p
-              className="text-[1.8rem] font-semibold text-[--color-near-black] tracking-[-0.04rem]"
+    <footer className="border-t border-[--color-border-light] bg-background pt-20">
+      <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem]">
+        <div className="grid gap-12 md:grid-cols-5">
+          {/* Brand column */}
+          <div className="space-y-6 md:col-span-2">
+            <Link
+              href="/"
+              className="block size-fit text-[1.8rem] font-semibold text-[--color-near-black] tracking-[-0.04rem] hover:text-primary transition-std"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               {SITE.name}
-            </p>
-            <p className="text-[1.4rem] text-[--color-muted] mt-[0.8rem] max-w-[28rem] leading-[1.6]">
+            </Link>
+            <p className="text-[1.4rem] text-muted-foreground max-w-[28rem] leading-[1.6]">
               {FOOTER.tagline}
             </p>
             {/* Social icons */}
-            <div className="flex items-center gap-[1.6rem] mt-[2.4rem]">
+            <div className="flex items-center gap-[1.6rem]">
               <a
                 href="https://twitter.com/chtz_tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow CHTZ-Tech on X"
-                className="text-[--color-muted] hover:text-[--color-near-black] transition-std"
+                className="text-muted-foreground hover:text-primary transition-std"
               >
                 <X size={18} aria-hidden="true" />
               </a>
@@ -53,7 +51,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow CHTZ-Tech on LinkedIn"
-                className="text-[--color-muted] hover:text-[--color-near-black] transition-std"
+                className="text-muted-foreground hover:text-primary transition-std"
               >
                 <LinkedinIcon size={18} />
               </a>
@@ -62,51 +60,68 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="CHTZ-Tech on GitHub"
-                className="text-[--color-muted] hover:text-[--color-near-black] transition-std"
+                className="text-muted-foreground hover:text-primary transition-std"
               >
                 <GithubIcon size={18} />
               </a>
             </div>
           </div>
 
-          {/* Link columns — 3 groups from FOOTER_LINKS */}
-          {FOOTER_LINKS.map((group) => (
-            <div key={group.title}>
-              <p className="text-[1.2rem] font-semibold text-[--color-near-black] uppercase tracking-[0.1rem] mb-[2rem]">
-                {group.title}
-              </p>
-              <ul className="flex flex-col gap-[1.2rem]">
+          {/* Link columns */}
+          <div className="col-span-3 grid grid-cols-3 gap-6">
+            {FOOTER_LINKS.map((group) => (
+              <div key={group.title} className="space-y-4">
+                <span className="block text-[1.4rem] font-medium text-[--color-near-black]">
+                  {group.title}
+                </span>
                 {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-[1.4rem] text-[--color-muted] hover:text-[--color-near-black] transition-std"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary block text-[1.4rem] duration-150"
+                  >
+                    {link.label}
+                  </Link>
                 ))}
-              </ul>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-[--color-border-light]">
-        <div className="mx-auto max-w-[125.4rem] px-[1.6rem] lg:px-[4.8rem] py-[2.4rem] flex items-center justify-between">
-          <p className="text-[1.3rem] text-[--color-muted]">
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-[--color-border-light] py-6">
+          <span className="order-last block text-center text-[1.3rem] text-muted-foreground md:order-first">
             {FOOTER.copyright}
-          </p>
-          <a
-            href="https://github.com/chtz-tech"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[1.3rem] text-[--color-muted] hover:text-[--color-near-black] transition-std flex items-center gap-[0.8rem]"
-          >
-            <GithubIcon size={14} />
-            <span>GitHub</span>
-          </a>
+          </span>
+          <div className="order-first flex flex-wrap justify-center gap-6 md:order-last">
+            <a
+              href="https://github.com/chtz-tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="CHTZ-Tech on GitHub"
+              className="text-muted-foreground hover:text-primary transition-std"
+            >
+              <GithubIcon size={20} />
+            </a>
+            <a
+              href="https://twitter.com/chtz_tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow CHTZ-Tech on X"
+              className="text-muted-foreground hover:text-primary transition-std"
+            >
+              <X size={20} aria-hidden="true" />
+            </a>
+            <a
+              href="https://linkedin.com/company/chtz-tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow CHTZ-Tech on LinkedIn"
+              className="text-muted-foreground hover:text-primary transition-std"
+            >
+              <LinkedinIcon size={20} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

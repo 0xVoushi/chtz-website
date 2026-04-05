@@ -1,0 +1,73 @@
+<h2>3 Implementation Approaches</h2>
+<p class="subtitle">Each is based on the 21st.dev references. The key difference is how dark-background sections are handled — the references are all light, but your current site uses 2 dark CTA breaks for rhythm.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="full-light" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.2rem; background: #f8f9fa;">
+      <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.6rem;">
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; border-radius: 4px; color: #141414; font-weight: 600;">Hero — gooey blobs on white</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; border-radius: 4px; color: #4c6176;">How It Works — bordered grid</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Services — divide-x divide-y grid (Features 11 style)</div>
+        <div style="background: #f4f4f4; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Logo cloud (efferd style)</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Process — 4 cols with dashed connector</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Principles — testimonial grid layout</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #141414; font-weight: 600;">Pricing — shadway compound cards</div>
+        <div style="background: #f4f4f4; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">FAQ</div>
+        <div style="background: #f4f4f4; border: 2px solid #fea55f; padding: 0.35rem 0.6rem; border-radius: 4px; color: #141414;">CTA — light bg, bold orange border</div>
+        <div style="background: #fff; border-top: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Footer — tailark advanced style</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full Light</h3>
+      <p>Everything light. Dark sections replaced with light bordered alternatives. Maximum fidelity to 21st.dev references. Clean and modern but loses the visual rhythm breaks of the current site.</p>
+      <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #888;">⚠ No dark sections at all</div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid-accent" onclick="toggleSelect(this)" style="outline: 2px solid #5565e8; outline-offset: 2px;">
+    <div class="card-image" style="padding: 1.2rem; background: #f8f9fa;">
+      <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.6rem;">
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; border-radius: 4px; color: #141414; font-weight: 600;">Hero — gooey blobs on white</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; border-radius: 4px; color: #4c6176;">How It Works — bordered grid</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Services — divide-x divide-y grid</div>
+        <div style="background: #1e2d3d; padding: 0.35rem 0.6rem; border-radius: 4px; color: #fff;">Fast Start CTA — 1 dark break (navy)</div>
+        <div style="background: #f4f4f4; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Logo cloud (efferd style)</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Process + Capabilities</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Principles — testimonial grid layout</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #141414; font-weight: 600;">Pricing — shadway compound cards</div>
+        <div style="background: #f4f4f4; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">FAQ</div>
+        <div style="background: #1e2d3d; padding: 0.35rem 0.6rem; border-radius: 4px; color: #fff;">Final CTA — navy (with contact form)</div>
+        <div style="background: #fff; border-top: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Footer — tailark advanced style</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Hybrid (Recommended)</h3>
+      <p>Light-first with 2 dark navy sections kept as visual rhythm anchors. The dark sections are restyled to match the new system (remove dot patterns, use cleaner typography). Best of both — modern 21st.dev feel + CHTZ-Tech brand identity.</p>
+      <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #5565e8;">★ Recommended — closest to the referenced style + preserves site rhythm</div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="glassmorphic" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.2rem; background: #f8f9fa;">
+      <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.6rem;">
+        <div style="background: linear-gradient(135deg, #f0f1ff, #fff); border: 1px solid #c5caff; padding: 0.4rem 0.6rem; border-radius: 4px; color: #141414; font-weight: 600;">Hero — purple radial bg + gooey blobs</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; border-radius: 4px; color: #4c6176;">How It Works</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Services — bordered grid</div>
+        <div style="background: linear-gradient(135deg, #fff8f0, #fff); border: 1px solid #fea55f40; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Logo cloud — with radial spotlight bg</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Process</div>
+        <div style="background: #fff; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Principles — testimonial grid</div>
+        <div style="background: linear-gradient(135deg, #1e2d3d, #0f1a28); padding: 0.35rem 0.6rem; border-radius: 4px; color: #fff; font-weight: 600;">Pricing — dark card bg (like shadway Pro)</div>
+        <div style="background: #f4f4f4; border: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">FAQ</div>
+        <div style="background: linear-gradient(135deg, #1e2d3d, #0f1a28); padding: 0.35rem 0.6rem; border-radius: 4px; color: #fff;">Final CTA — dark</div>
+        <div style="background: #fff; border-top: 1px solid #e2e8f0; padding: 0.35rem 0.6rem; border-radius: 4px; color: #4c6176;">Footer</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Premium / Glassmorphic</h3>
+      <p>Uses the glass + radial spotlight treatments from the shadway pricing reference more broadly. Hero gets a purple radial bg, logo cloud gets a spotlight. More theatrical, higher visual contrast. Hardest to keep cohesive.</p>
+      <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #888;">More complex, risk of incoherence</div>
+    </div>
+  </div>
+
+</div>

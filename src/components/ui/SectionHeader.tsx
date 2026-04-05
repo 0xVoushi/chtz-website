@@ -25,7 +25,7 @@ export function SectionHeader({
         </p>
       )}
       <h2
-        className={`text-[2.8rem] md:text-[3.6rem] font-semibold tracking-[-0.08rem] leading-[1.1] ${headingColor}`}
+        className={`text-balance text-[3.2rem] md:text-[4rem] font-medium tracking-[-0.06rem] leading-[1.1] ${headingColor}`}
       >
         {heading}
       </h2>

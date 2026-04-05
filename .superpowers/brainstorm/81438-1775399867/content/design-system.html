@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHTZ-Tech v3 — Design System & Page Mockup</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa;
+    color: #141414;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 2rem;
+  }
+
+  /* ── COLOR SYSTEM ── */
+  :root {
+    --navy: #1e2d3d;
+    --orange: #fea55f;
+    --purple: #5565e8;
+    --green: #43d9ad;
+    --near-black: #141414;
+    --muted: #4c6176;
+    --grey-light: #607b96;
+    --surface-frame: #f4f4f4;
+    --border-light: #e2e8f0;
+    --bg: #fafafa;
+    --white: #ffffff;
+  }
+
+  h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--near-black); }
+  h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: var(--near-black); border-bottom: 2px solid var(--border-light); padding-bottom: 0.5rem; }
+  h3 { font-size: 0.9rem; font-weight: 600; color: var(--near-black); }
+  p.subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+  .section { margin-bottom: 3rem; }
+  .label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.4rem; }
+  .note { font-size: 0.7rem; color: var(--muted); font-style: italic; margin-top: 0.3rem; }
+
+  /* ── GRID HELPERS ── */
+  .row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start; margin-bottom: 1.5rem; }
+  .col { flex: 1; min-width: 180px; }
+  .col-auto { flex: 0 0 auto; }
+
+  /* ══════════════════════════════════════════
+     UI KIT PRIMITIVES
+  ══════════════════════════════════════════ */
+
+  /* Color swatches */
+  .swatch-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .swatch { width: 64px; height: 40px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.08); }
+  .swatch-label { font-size: 0.65rem; color: var(--muted); text-align: center; margin-top: 2px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1.2rem; border-radius: 0.5rem; border: none; cursor: pointer; transition: all 0.15s; }
+  .btn-primary { background: var(--orange); color: var(--near-black); }
+  .btn-outline { background: transparent; color: var(--near-black); border: 1.5px solid var(--border-light); }
+  .btn-navy { background: var(--navy); color: white; }
+  .btn-sm { padding: 0.35rem 0.9rem; font-size: 0.75rem; }
+  .btn-lg { padding: 0.7rem 1.6rem; font-size: 0.95rem; }
+
+  /* Badges */
+  .badge { display: inline-flex; align-items: center; font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 999px; letter-spacing: 0.02em; }
+  .badge-orange { background: #fff3e8; color: #b35200; border: 1px solid #fcd5a8; }
+  .badge-green { background: #e6fbf5; color: #1a7a5e; border: 1px solid #a3e9d6; }
+  .badge-purple { background: #eef0ff; color: #3d4db5; border: 1px solid #c0c7f5; }
+  .badge-outline { background: transparent; color: var(--muted); border: 1px solid var(--border-light); }
+
+  /* Cards */
+  .card-base { background: white; border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 1.2rem; }
+  .card-surface { background: var(--surface-frame); border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 1.2rem; }
+  .card-dark { background: var(--navy); border-radius: 0.75rem; padding: 1.2rem; color: white; }
+
+  /* Section header */
+  .section-header { margin-bottom: 2rem; }
+  .section-header .label { color: var(--purple); }
+  .section-header h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.2; color: var(--near-black); max-width: 400px; }
+  .section-header p { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; max-width: 400px; }
+
+  /* ══════════════════════════════════════════
+     PAGE SECTIONS (MOCKUP STRIPS)
+  ══════════════════════════════════════════ */
+
+  .page-section { border-radius: 1rem; overflow: hidden; margin-bottom: 1rem; }
+  .strip { padding: 1.5rem 2rem; font-size: 0.8rem; position: relative; }
+  .strip-light { background: white; border: 1px solid var(--border-light); }
+  .strip-frame { background: var(--surface-frame); border: 1px solid var(--border-light); }
+  .strip-dark { background: var(--navy); color: white; }
+  .strip-white-bordered { background: white; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+
+  /* Typography scale demo */
+  .type-demo { display: flex; flex-direction: column; gap: 0.4rem; }
+  .type-hero { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; color: var(--near-black); }
+  .type-h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; color: var(--near-black); }
+  .type-h3-grid { font-size: 0.8rem; font-weight: 600; color: var(--near-black); }
+  .type-body { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .type-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.7rem; color: var(--muted); }
+
+  /* HERO MOCKUP */
+  .hero-mock { background: white; border: 1px solid var(--border-light); border-radius: 1rem; padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+  .hero-blob-1 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(ellipse, rgba(85,101,232,0.25), transparent 70%); top: -60px; left: -40px; filter: blur(30px); }
+  .hero-blob-2 { position: absolute; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(ellipse, rgba(254,165,95,0.25), transparent 70%); top: -40px; right: -30px; filter: blur(25px); }
+  .hero-label { font-family: monospace; font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.8rem; }
+  .hero-h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; color: var(--near-black); margin-bottom: 0.6rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .hero-sub { font-size: 0.85rem; color: var(--muted); max-width: 420px; margin: 0 auto 1.2rem; }
+  .hero-btns { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.2rem; }
+  .hero-trust { display: flex; gap: 1rem; justify-content: center; font-size: 0.7rem; color: var(--muted); border-top: 1px solid var(--border-light); padding-top: 0.8rem; }
+  .hero-trust span::before { content: "✓ "; color: var(--green); }
+
+  /* FEATURES GRID */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border-light); border-radius: 0.75rem; overflow: hidden; }
+  .feature-cell { padding: 1rem 1.2rem; border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .feature-cell:nth-child(3), .feature-cell:nth-child(6) { border-right: none; }
+  .feature-cell:nth-child(4), .feature-cell:nth-child(5), .feature-cell:nth-child(6) { border-bottom: none; }
+  .feature-icon { width: 20px; height: 20px; background: var(--surface-frame); border-radius: 4px; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+
+  /* HOW SECTION */
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .how-card { border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 1rem; }
+  .how-card.sad { border-top: 2px solid #fcd5a8; }
+  .how-card.happy { border-top: 2px solid var(--green); }
+  .how-icon { width: 28px; height: 28px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .how-icon.x { background: #fff3e8; color: #b35200; }
+  .how-icon.check { background: #e6fbf5; color: #1a7a5e; }
+  .how-point { font-size: 0.7rem; color: var(--muted); padding: 0.2rem 0 0.2rem 0.7rem; border-left: 2px solid var(--border-light); margin-top: 0.25rem; }
+
+  /* DARK CTA STRIP */
+  .dark-cta { background: var(--navy); border-radius: 1rem; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .dark-cta h3 { color: white; font-size: 1.1rem; font-weight: 600; line-height: 1.3; }
+  .dark-cta p { color: rgba(255,255,255,0.6); font-size: 0.75rem; margin-top: 0.25rem; }
+
+  /* LOGO CLOUD */
+  .logo-cloud { background: white; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); padding: 1rem 2rem; display: flex; align-items: center; gap: 2rem; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+  .logo-pill { background: var(--surface-frame); border-radius: 4px; padding: 0.3rem 0.7rem; font-size: 0.65rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+  /* PROCESS */
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .process-step { padding: 1rem; border-top: 2px solid var(--orange); }
+  .process-num { font-size: 1.4rem; font-weight: 700; color: var(--orange); font-family: monospace; }
+  .process-title { font-size: 0.75rem; font-weight: 600; color: var(--near-black); margin-top: 0.3rem; }
+  .process-desc { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* PRINCIPLES (testimonial grid layout) */
+  .principles-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 0.75rem; }
+  .principle-large { grid-row: span 2; background: var(--navy); border-radius: 0.75rem; padding: 1.2rem; color: white; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; }
+  .principle-large h3 { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+  .principle-large p { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+  .principle-metric { background: white; border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 0.8rem; }
+  .principle-metric .num { font-size: 1.3rem; font-weight: 700; color: var(--near-black); }
+  .principle-metric .desc { font-size: 0.65rem; color: var(--muted); margin-top: 0.15rem; }
+  .principle-right { background: white; border: 1px solid var(--border-light); border-radius: 0.75rem; padding: 0.8rem; grid-column: span 2; }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+  .pricing-card { background: white; border: 1px solid var(--border-light); border-radius: 0.9rem; overflow: hidden; padding: 0.5rem; }
+  .pricing-card.featured { border: 2px solid var(--orange); }
+  .pricing-header { background: var(--surface-frame); border-radius: 0.6rem; border: 1px solid var(--border-light); padding: 0.8rem; margin-bottom: 0.5rem; position: relative; }
+  .pricing-header::before { content: ''; position: absolute; inset-x: 0; top: 0; height: 60px; border-radius: inherit; background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 100%); }
+  .pricing-name { font-size: 0.7rem; font-weight: 600; color: var(--muted); margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .pricing-price { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.04em; color: var(--near-black); }
+  .pricing-period { font-size: 0.65rem; color: var(--muted); }
+  .pricing-btn { display: block; width: 100%; text-align: center; padding: 0.4rem; border-radius: 0.4rem; font-size: 0.7rem; font-weight: 600; margin-top: 0.5rem; }
+  .pricing-btn-outline { border: 1.5px solid var(--border-light); color: var(--near-black); }
+  .pricing-btn-primary { background: var(--orange); color: var(--near-black); }
+  .pricing-body { padding: 0.3rem 0.3rem 0.5rem; }
+  .pricing-feature { font-size: 0.65rem; color: var(--muted); padding: 0.2rem 0; display: flex; align-items: center; gap: 0.3rem; }
+  .pricing-feature::before { content: '✓'; color: var(--green); font-size: 0.6rem; }
+
+  /* FOOTER */
+  .footer-mock { background: white; border-top: 1px solid var(--border-light); padding: 1.5rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1rem; }
+  .footer-brand h4 { font-size: 0.85rem; font-weight: 700; color: var(--near-black); }
+  .footer-brand p { font-size: 0.7rem; color: var(--muted); margin-top: 0.25rem; }
+  .footer-col h5 { font-size: 0.7rem; font-weight: 700; color: var(--near-black); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+  .footer-col a { display: block; font-size: 0.7rem; color: var(--muted); text-decoration: none; padding: 0.15rem 0; }
+  .footer-bottom { background: white; border-top: 1px solid var(--border-light); padding: 0.75rem 2rem; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>CHTZ-Tech v3 — Design System & Page Mockup</h1>
+<p class="subtitle">Approach B (Hybrid): light-first, 21st.dev references, 2 dark navy anchors. Click anywhere to dismiss.</p>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- UI KIT                                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <h2>1. UI Kit — Design Tokens</h2>
+
+  <div class="row">
+    <div class="col">
+      <div class="label">Brand Colors (kept from v2)</div>
+      <div class="swatch-row">
+        <div>
+          <div class="swatch" style="background:#1e2d3d"></div>
+          <div class="swatch-label">navy</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#fea55f"></div>
+          <div class="swatch-label">orange CTA</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#5565e8"></div>
+          <div class="swatch-label">purple</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#43d9ad"></div>
+          <div class="swatch-label">green</div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Neutrals / Surfaces</div>
+      <div class="swatch-row">
+        <div>
+          <div class="swatch" style="background:#141414"></div>
+          <div class="swatch-label">near-black</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#4c6176"></div>
+          <div class="swatch-label">muted text</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#f4f4f4; border:1px solid #e2e8f0;"></div>
+          <div class="swatch-label">surface</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#fafafa; border:1px solid #e2e8f0;"></div>
+          <div class="swatch-label">bg</div>
+        </div>
+        <div>
+          <div class="swatch" style="background:#e2e8f0"></div>
+          <div class="swatch-label">border</div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">New: shadcn aliases (added to globals.css)</div>
+      <div style="font-size:0.7rem; color: var(--muted); background: var(--surface-frame); padding: 0.6rem 0.8rem; border-radius: 6px; line-height: 1.8; font-family: monospace;">
+        --foreground: var(--color-near-black)<br>
+        --muted-foreground: var(--color-muted)<br>
+        --primary: var(--color-orange-cta)<br>
+        --card: var(--color-surface-light)<br>
+        --muted: var(--color-surface-frame)<br>
+        --border: var(--color-border-light)
+      </div>
+      <div class="note">→ Enables 21st.dev components to use text-muted-foreground, bg-card, etc.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="label">Typography Scale (matches 21st.dev references)</div>
+      <div class="type-demo">
+        <div class="type-hero">Hero Heading — font-bold tracking-tight</div>
+        <div class="type-h2">Section Heading — font-semibold</div>
+        <div class="type-h3-grid">Feature Title — text-sm font-medium (grid cells)</div>
+        <div class="type-body">Body paragraph — text-[--color-muted] line-height 1.6. Used in section intros, card descriptions, and supporting copy.</div>
+        <div class="type-mono">// Mono labels — JetBrains Mono · text-xs · used for section labels, code comments, process numbers</div>
+      </div>
+    </div>
+    <div class="col" style="max-width: 280px;">
+      <div class="label">Buttons</div>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;">
+        <button class="btn btn-primary">Get Started</button>
+        <button class="btn btn-outline">See Pricing</button>
+        <button class="btn btn-navy">Book a Call</button>
+        <button class="btn btn-primary btn-sm">Start</button>
+        <button class="btn btn-outline btn-sm">Learn More</button>
+        <button class="btn btn-primary btn-lg">Ship Your First Feature →</button>
+      </div>
+      <div class="note">Primary = orange fill; Outline = border/transparent; Navy = dark fill</div>
+    </div>
+    <div class="col" style="max-width: 240px;">
+      <div class="label">Badges</div>
+      <div style="display:flex; flex-wrap:wrap; gap:0.4rem; align-items:center; margin-bottom: 0.75rem;">
+        <span class="badge badge-orange">Most Popular</span>
+        <span class="badge badge-green">New</span>
+        <span class="badge badge-purple">// studio</span>
+        <span class="badge badge-outline">coming soon</span>
+      </div>
+      <div class="label">Card Variants</div>
+      <div style="display:flex; flex-direction:column; gap:0.4rem;">
+        <div class="card-base" style="padding:0.6rem 0.8rem; font-size:0.75rem;">White card — bg-white border border-light</div>
+        <div class="card-surface" style="padding:0.6rem 0.8rem; font-size:0.75rem;">Surface card — bg-surface-frame</div>
+        <div class="card-dark" style="padding:0.6rem 0.8rem; font-size:0.75rem;">Dark card — bg-navy text-white</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE MOCKUP — STRIP BY STRIP           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <h2>2. Page Mockup — Section by Section</h2>
+  <p class="subtitle" style="margin-bottom:1.5rem;">Each strip is a compressed preview. Proportions are approximate.</p>
+
+  <!-- HEADER -->
+  <div class="label">Header (sticky, height 64px)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:0.6rem 1.5rem; display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+    <span style="font-weight:700; font-size:0.85rem;">CHTZ-Tech</span>
+    <div style="display:flex; gap:1.5rem; font-size:0.75rem; color:var(--muted);">
+      <span>Services</span><span>Process</span><span>FAQ</span><span>Contact</span>
+    </div>
+    <button class="btn btn-primary btn-sm">Book a Call →</button>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Sticky top-0 z-50, bg-white, border-b. Logo hover → orange. Nav links: underline slides in on hover (orange). Mobile: hamburger drawer.</div>
+
+  <!-- HERO -->
+  <div class="label">01 — Hero Section (gooey blob background, white)</div>
+  <div class="hero-mock" style="margin-bottom:0.5rem;">
+    <div class="hero-blob-1"></div>
+    <div class="hero-blob-2"></div>
+    <div style="position:relative; z-index:1;">
+      <div class="hero-label">// SOFTWARE STUDIO</div>
+      <div class="hero-h1">Custom Software Development Studio — Web, AI &amp; Web3</div>
+      <div class="hero-sub">Senior engineers building production-grade applications. No juniors, no handoffs, no surprises.</div>
+      <div class="hero-btns">
+        <button class="btn btn-primary">Book a Discovery Call →</button>
+        <button class="btn btn-outline">See Pricing</button>
+      </div>
+      <div class="hero-trust">
+        <span>40+ products shipped</span>
+        <span>Senior engineers only</span>
+        <span>95+ Lighthouse scores</span>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">GooeyFilter SVG + 2 animated blobs (purple + orange). White bg. Centered layout. Animated trust signals. Source: danielpetho/gooey-filter (existing gooey-filter.tsx reused).</div>
+
+  <!-- HOW -->
+  <div class="label">02 — How It Works (2-col comparison)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div class="label">// HOW IT WORKS</div>
+      <h3 style="font-size:1.1rem;">The Old Way vs The CHTZ-Tech Way</h3>
+    </div>
+    <div class="how-grid">
+      <div class="how-card sad">
+        <div class="how-icon x">✗</div>
+        <div style="font-size:0.75rem; font-weight:600; color:#b35200; margin-bottom:0.4rem;">The Old Way</div>
+        <div class="how-point">Junior devs, slow delivery</div>
+        <div class="how-point">Scope creep, surprise costs</div>
+        <div class="how-point">No ownership after handoff</div>
+      </div>
+      <div class="how-card happy">
+        <div class="how-icon check">✓</div>
+        <div style="font-size:0.75rem; font-weight:600; color:#1a7a5e; margin-bottom:0.4rem;">The CHTZ-Tech Way</div>
+        <div class="how-point">Senior engineers only</div>
+        <div class="how-point">Fixed scope, weekly delivery</div>
+        <div class="how-point">Production-grade from day 1</div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Light section. Cards use orange/green top border accent (not dot backgrounds). Grid style — Features 4 influence.</div>
+
+  <!-- SERVICES -->
+  <div class="label">03 — Services (Features 11 style — divide-x divide-y bordered grid)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div class="label">// SERVICES</div>
+      <h3 style="font-size:1.1rem;">What We Build</h3>
+    </div>
+    <div class="features-grid">
+      <div class="feature-cell">
+        <div class="feature-icon">⚡</div>
+        <div class="type-h3-grid">Web Applications</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">Next.js · TypeScript · production-grade</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-icon">🤖</div>
+        <div class="type-h3-grid">AI Integrations</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">OpenAI · Anthropic · custom agents</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-icon">⛓</div>
+        <div class="type-h3-grid">Web3 / Blockchain</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">Solidity · smart contracts · dApps</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-icon">🔧</div>
+        <div class="type-h3-grid">Backend Systems</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">Node.js · PostgreSQL · Prisma</div>
+      </div>
+      <div class="feature-cell">
+        <div class="feature-icon">🚀</div>
+        <div class="type-h3-grid">SDK &amp; API Design</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">REST · GraphQL · OpenAPI</div>
+      </div>
+      <div class="feature-cell" style="background: var(--surface-frame);">
+        <div class="feature-icon">🛡</div>
+        <div class="type-h3-grid">Infra &amp; Reliability</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">CI/CD · Vercel · Monitoring</div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Key change: cells share borders via divide-x divide-y (not individual cards). Very compact cells with p-12 equivalent. Icon (4px rounded) + title (text-sm font-medium) + mono tag. Source: tailark/features-11.</div>
+
+  <!-- FAST START CTA (DARK) -->
+  <div class="label">04 — Fast Start CTA (dark navy — Anchor #1)</div>
+  <div class="dark-cta" style="margin-bottom:0.5rem;">
+    <div>
+      <h3>Ship your first feature in 2 weeks.</h3>
+      <p>No lengthy discovery. No design sprints. We start building in week one.</p>
+    </div>
+    <button class="btn btn-primary">Start Now →</button>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Restyled from v2: removes dot pattern, uses clean navy + white type. Left: heading + subhead. Right: CTA button. Simple 2-col flex layout.</div>
+
+  <!-- LOGO CLOUD -->
+  <div class="label">05 — Tech Stack / Logo Cloud (efferd logo-cloud-4 style)</div>
+  <div style="background:white; border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); padding:1.2rem 2rem; margin-bottom:0.5rem;">
+    <div style="text-align:center; margin-bottom:0.75rem;">
+      <div style="font-size:0.65rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">// OUR STACK</div>
+      <div style="font-size:1rem; font-weight:600; color:var(--near-black);">Built with the best tools</div>
+    </div>
+    <div class="logo-cloud">
+      <div class="logo-pill">Next.js</div>
+      <div class="logo-pill">TypeScript</div>
+      <div class="logo-pill">React</div>
+      <div class="logo-pill">PostgreSQL</div>
+      <div class="logo-pill">OpenAI</div>
+      <div class="logo-pill">Solidity</div>
+      <div class="logo-pill">Vercel</div>
+      <div class="logo-pill">Prisma</div>
+      <div class="logo-pill">Node.js</div>
+      <div class="logo-pill">Python</div>
+      <div class="logo-pill">GitHub</div>
+      <div class="logo-pill">Tailwind</div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">max-w-3xl container · border-x on md+ · progressive blur left/right (ProgressiveBlur) · InfiniteSlider (existing) · full-width border-t/b lines extend past container. Source: efferd/logo-cloud-4 (existing logo-cloud.tsx adapted).</div>
+
+  <!-- CAPABILITIES -->
+  <div class="label">06 — Capabilities (bento grid, light)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:0.8rem;">
+      <div class="label">// CAPABILITIES</div>
+      <h3 style="font-size:1rem;">What We're Good At</h3>
+    </div>
+    <div style="display:grid; grid-template-columns:3fr 2fr; gap:0.5rem; font-size:0.7rem;">
+      <div style="background:var(--surface-frame); border:1px solid var(--border-light); border-radius:0.5rem; padding:0.8rem;">
+        <div style="font-weight:600; color:var(--near-black);">Backend Systems</div>
+        <div style="color:var(--muted); font-size:0.65rem; margin-top:0.2rem;">Scalable APIs, complex data models, high-availability services.</div>
+        <div style="font-family:monospace; font-size:0.6rem; color:var(--muted); margin-top:0.3rem; border-top:1px solid var(--border-light); padding-top:0.3rem;">// Node · Prisma · PostgreSQL</div>
+      </div>
+      <div style="background:var(--surface-frame); border:1px solid var(--border-light); border-radius:0.5rem; padding:0.8rem;">
+        <div style="font-weight:600; color:var(--near-black);">AI Agents</div>
+        <div style="color:var(--muted); font-size:0.65rem; margin-top:0.2rem;">LLM pipelines, RAG, tool-calling workflows.</div>
+        <div style="font-family:monospace; font-size:0.6rem; color:var(--muted); margin-top:0.3rem; border-top:1px solid var(--border-light); padding-top:0.3rem;">// OpenAI · Anthropic · Vercel AI</div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Retains bento-grid approach, restyled to match surface-frame cards with mono code tags. BentoGridWithFeatures component updated.</div>
+
+  <!-- PROCESS -->
+  <div class="label">07 — Process (4-col with orange top border + dashed connector)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:0.8rem;">
+      <div class="label">// HOW WE WORK</div>
+      <h3 style="font-size:1rem;">4-Step Process</h3>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Discovery</div>
+        <div class="process-desc">Define scope, goals, constraints</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Architecture</div>
+        <div class="process-desc">System design, tech selection</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Development</div>
+        <div class="process-desc">Weekly sprints, daily updates</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Launch &amp; Support</div>
+        <div class="process-desc">Deploy, monitor, maintain</div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Keeps existing structure. Restyled: orange top border (2px), mono numbers, dashed horizontal connector (desktop). No major component change needed.</div>
+
+  <!-- PRINCIPLES (TESTIMONIAL GRID) -->
+  <div class="label">08 — Principles (testimonial grid layout — ui-layouts/testimonial reference)</div>
+  <div style="background:var(--surface-frame); border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:0.8rem;">
+      <div class="label">// HOW WE BUILD</div>
+      <h3 style="font-size:1rem;">Engineering Principles</h3>
+    </div>
+    <div class="principles-grid">
+      <div class="principle-large">
+        <h3>Engineering First. Always.</h3>
+        <p>Not agency work. Not outsourcing. Senior engineers who own the code.</p>
+      </div>
+      <div class="principle-metric">
+        <div class="num">95+</div>
+        <div class="desc">Lighthouse scores on every project</div>
+      </div>
+      <div class="principle-metric">
+        <div class="num">CI/CD</div>
+        <div class="desc">From day 1. No excuses.</div>
+      </div>
+      <div class="principle-right">
+        <div style="font-size:0.75rem; font-weight:600; color:var(--near-black);">Your Code. Your Repo.</div>
+        <div style="font-size:0.65rem; color:var(--muted); margin-top:0.2rem;">Full source, full access, no lock-in. You own everything we build.</div>
+      </div>
+      <div class="principle-metric">
+        <div class="num">Type-Safe</div>
+        <div class="desc">TypeScript strict mode — always</div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Replaces Framer Motion masonry with a static testimonial-grid layout (no fake testimonials — real principle data). Source: ui-layouts/testimonial grid structure. 1 large dark card (2 row-span) + metric cards.</div>
+
+  <!-- PRICING -->
+  <div class="label">09 — Pricing (shadway compound component cards)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:1rem; text-align:center;">
+      <div class="label" style="text-align:center;">// PRICING</div>
+      <h3 style="font-size:1.1rem; text-align:center; max-width:none;">Transparent Pricing</h3>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-name"><span>Starter</span></div>
+          <div class="pricing-price">$20–40K</div>
+          <div class="pricing-period">fixed project cost</div>
+          <button class="pricing-btn pricing-btn-outline">Book Discovery Call</button>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-feature">Full-stack web application</div>
+          <div class="pricing-feature">Up to 3 months timeline</div>
+          <div class="pricing-feature">CI/CD + testing included</div>
+        </div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-header" style="background:linear-gradient(135deg,#fff8f0,#f4f4f4);">
+          <div class="pricing-name"><span>Growth</span><span class="badge badge-orange" style="font-size:0.55rem;">Most Popular</span></div>
+          <div class="pricing-price">$40–100K</div>
+          <div class="pricing-period">fixed project cost</div>
+          <button class="pricing-btn pricing-btn-primary">Book Discovery Call</button>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-feature">Complex product or platform</div>
+          <div class="pricing-feature">AI integrations included</div>
+          <div class="pricing-feature">Priority support channel</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-name"><span>Enterprise</span></div>
+          <div class="pricing-price" style="font-size:1rem; letter-spacing:0;">Custom</div>
+          <div class="pricing-period">scoped per engagement</div>
+          <button class="pricing-btn pricing-btn-outline">Talk to Us</button>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-feature">Dedicated engineering team</div>
+          <div class="pricing-feature">Long-term partnership</div>
+          <div class="pricing-feature">Custom SLA + reporting</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:0.75rem; font-family:monospace; font-size:0.65rem; color:var(--muted);">// All projects start with a free discovery call</div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">Existing pricing-card.tsx compound component updated: add glass header gradient, shadcn-compatible tokens, featured card gets orange ring-2. Source: shadway/pricing-component.</div>
+
+  <!-- FAQ -->
+  <div class="label">10 — FAQ (accordion, light)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; padding:1.2rem; margin-bottom:0.5rem;">
+    <div class="section-header" style="margin-bottom:0.8rem;">
+      <div class="label">// QUESTIONS</div>
+      <h3 style="font-size:1rem;">Frequently Asked</h3>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:0; border:1px solid var(--border-light); border-radius:0.5rem; overflow:hidden;">
+      <div style="padding:0.7rem 0.8rem; border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem;">
+        <span style="font-weight:600;">What does a typical project cost?</span>
+        <span style="color:var(--muted);">+</span>
+      </div>
+      <div style="padding:0.7rem 0.8rem; border-bottom:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; background:var(--surface-frame);">
+        <span style="font-weight:600; color:var(--orange);">How long does delivery take?</span>
+        <span style="color:var(--orange);">−</span>
+      </div>
+      <div style="padding:0.5rem 0.8rem 0.8rem; background:var(--surface-frame); font-size:0.7rem; color:var(--muted);">First features ship in week 2. Full projects typically range from 6–16 weeks depending on scope and complexity.</div>
+      <div style="padding:0.7rem 0.8rem; display:flex; justify-content:space-between; align-items:center; font-size:0.75rem;">
+        <span style="font-weight:600;">Do you work with startups?</span>
+        <span style="color:var(--muted);">+</span>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">FAQAccordion.tsx restyled: remove legacy styling, use standard border-light dividers. Open item: surface-frame bg + orange chevron. Existing animation logic kept.</div>
+
+  <!-- FINAL CTA (DARK) -->
+  <div class="label">11 — Contact CTA (dark navy — Anchor #2)</div>
+  <div class="dark-cta" style="flex-direction:column; align-items:flex-start; gap:0.75rem; margin-bottom:0.5rem;">
+    <div>
+      <div style="font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.4); margin-bottom:0.3rem;">// START A PROJECT</div>
+      <h3 style="font-size:1.2rem;">Ready to ship something great?</h3>
+      <p>Free discovery call · 24-hour response · Detailed estimate</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; width:100%;">
+      <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:0.4rem; padding:0.5rem 0.6rem; font-size:0.65rem; color:rgba(255,255,255,0.7);">Name</div>
+      <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:0.4rem; padding:0.5rem 0.6rem; font-size:0.65rem; color:rgba(255,255,255,0.3);">Email</div>
+      <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:0.4rem; padding:0.5rem 0.6rem; font-size:0.65rem; color:rgba(255,255,255,0.3); grid-column:span 2;">Tell us about your project...</div>
+      <button class="btn btn-primary" style="grid-column:span 2; justify-content:center;">Send Message →</button>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom:1.5rem;">CTASection.tsx restyled: removes dot pattern, clean navy. 2-col layout (left: copy + trust signals; right: contact form). ContactForm inputs updated for new dark treatment.</div>
+
+  <!-- FOOTER -->
+  <div class="label">Footer (tailark Footer Advanced style)</div>
+  <div style="background:white; border:1px solid var(--border-light); border-radius:0.75rem; overflow:hidden; margin-bottom:0.5rem;">
+    <div class="footer-mock">
+      <div class="footer-brand">
+        <h4>CHTZ-Tech</h4>
+        <p>Senior engineers building production-grade applications. Web, AI &amp; Web3.</p>
+        <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+          <div style="width:20px; height:20px; background:var(--surface-frame); border:1px solid var(--border-light); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:0.6rem;">GH</div>
+          <div style="width:20px; height:20px; background:var(--surface-frame); border:1px solid var(--border-light); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:0.6rem;">LI</div>
+          <div style="width:20px; height:20px; background:var(--surface-frame); border:1px solid var(--border-light); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:0.6rem;">X</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#">Web Applications</a>
+        <a href="#">AI Integrations</a>
+        <a href="#">Web3 / Blockchain</a>
+        <a href="#">Backend Systems</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Process</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CHTZ-Tech. All rights reserved.</span>
+      <span>chtz-tech.dev</span>
+    </div>
+  </div>
+  <div class="note">Footer.tsx restyled: max-w-5xl container, grid-cols-5 (brand 2 + 3 groups), social icon row, border-b on footer. Source: tailark/footer-advanced pattern.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- UI KIT MAPPING                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <h2>3. UI Kit → 21st.dev Source Mapping</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:0.75rem;">
+    <thead>
+      <tr style="background:var(--surface-frame);">
+        <th style="text-align:left; padding:0.5rem 0.75rem; border:1px solid var(--border-light);">UI Primitive</th>
+        <th style="text-align:left; padding:0.5rem 0.75rem; border:1px solid var(--border-light);">Source Reference</th>
+        <th style="text-align:left; padding:0.5rem 0.75rem; border:1px solid var(--border-light);">File Change</th>
+        <th style="text-align:left; padding:0.5rem 0.75rem; border:1px solid var(--border-light);">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Feature grid cells</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">tailark/features-11 (Features 4)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">ServicesSection.tsx</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-orange">Restyle</span></td>
+      </tr>
+      <tr style="background:var(--surface-frame);">
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Pricing cards</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">shadway/pricing-component</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">pricing-card.tsx + PricingSection.tsx</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-orange">Update</span></td>
+      </tr>
+      <tr>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Principles layout</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">ui-layouts/testimonial (Talius grid)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">PrinciplesSection.tsx (rebuilt)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-purple">Rebuild</span></td>
+      </tr>
+      <tr style="background:var(--surface-frame);">
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Logo cloud</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">efferd/logo-cloud-4</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">logo-cloud.tsx (minor update)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-green">Minor</span></td>
+      </tr>
+      <tr>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Hero gooey blobs</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">danielpetho/gooey-filter</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">HeroSection.tsx (keep + refine)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-green">Keep</span></td>
+      </tr>
+      <tr style="background:var(--surface-frame);">
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Footer layout</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">efferd/footer-section (Footer Advanced)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Footer.tsx</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-orange">Restyle</span></td>
+      </tr>
+      <tr>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">Spinner</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">efferd/spinner-1</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">spinner.tsx (keep existing)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-green">Keep</span></td>
+      </tr>
+      <tr style="background:var(--surface-frame);">
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">shadcn aliases</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light); color:var(--muted);">All references (use text-muted-foreground etc.)</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);">globals.css @theme block</td>
+        <td style="padding:0.4rem 0.75rem; border:1px solid var(--border-light);"><span class="badge badge-purple">New tokens</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:0.75rem; color:var(--muted); text-align:center; margin-top:1rem;">CHTZ-Tech v3 Design System — Approach B (Hybrid) · 2026-04-05</p>
+
+</body>
+</html>

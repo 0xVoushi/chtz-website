@@ -21,7 +21,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.question}>
+          <div key={item.question} className={isOpen ? "bg-[--color-surface-frame] rounded-lg px-[1.6rem]" : ""}>
             <button
               id={`faq-btn-${index}`}
               onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -35,8 +35,8 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
               <ChevronDown
                 size={20}
                 className={cn(
-                  "shrink-0 text-[--color-muted] transition-std",
-                  isOpen ? "rotate-180" : "rotate-0"
+                  "shrink-0 transition-std",
+                  isOpen ? "rotate-180 text-[--color-orange-cta]" : "rotate-0 text-muted-foreground"
                 )}
                 aria-hidden="true"
               />

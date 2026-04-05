@@ -20,6 +20,26 @@
   --color-bg: #fafafa;
   --color-border-light: #e2e8f0;
   --color-surface-frame: #f4f4f4;
+
+  /* shadcn-compatible aliases — required by adapted 21st.dev components */
+  --color-primary: var(--color-orange-cta);
+  --color-background: var(--color-bg);
+  --color-card: var(--color-surface-light);
+  --color-muted-foreground: var(--color-muted);
+  --color-border: var(--color-border-light);
+}
+
+/* ── Loader animation (efferd/spinner-1) ────────────────────── */
+@keyframes loaderAnim {
+  0%    { inset: 0 35px 35px 0; }
+  12.5% { inset: 0 35px 0 0; }
+  25%   { inset: 35px 35px 0 0; }
+  37.5% { inset: 35px 0 0 0; }
+  50%   { inset: 35px 0 0 35px; }
+  62.5% { inset: 0 0 0 35px; }
+  75%   { inset: 0 0 35px 35px; }
+  87.5% { inset: 0 0 35px 0; }
+  100%  { inset: 0 35px 35px 0; }
 }
 
 /* ── Wave animation (Hero animated cards) ───────────────────── */
