@@ -38,7 +38,6 @@
   }
 
   body {
-    font-family: var(--font-family-mono);
     font-size: 1.6rem;
     line-height: 1.5;
     color: #141414;
